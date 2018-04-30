@@ -41,7 +41,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -61,7 +61,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -81,7 +81,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -101,7 +101,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -121,7 +121,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -141,7 +141,7 @@
                 android:textColorHint="#fff"
                 android:visibility="visible" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -161,7 +161,7 @@
                 android:textColorHint="#fff"
                 android:visibility="visible" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -181,7 +181,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -201,7 +201,7 @@
                 android:padding="8dp"
                 android:textColorHint="#fff" />
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
@@ -212,7 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/background_login"
+                android:background="@drawable/background_signup"
                 android:clickable="true"
                 android:padding="16dp"
                 android:text="Submit" />
