@@ -20,10 +20,6 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity
-            android:name=".InformationActivity"
-            android:label="@string/title_activity_information"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".InfoActivity"></activity>
     </application>
 
