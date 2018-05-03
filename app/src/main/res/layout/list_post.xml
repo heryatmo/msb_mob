@@ -19,12 +19,14 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtViewName" />
+                android:id="@+id/txtViewName"
+                android:text="Anto"/>
             <TextView
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtViewPost" />
+                android:id="@+id/txtViewPost"
+                android:text="Dibutuhkan volunteer segera pada shelter 1"/>
 
         </LinearLayout>
 

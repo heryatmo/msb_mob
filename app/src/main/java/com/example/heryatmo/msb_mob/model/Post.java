@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public class Post {
 
-    @SerializedName("kebutuhan")
+        @SerializedName("kebutuhan")
     private String mKebutuhan;
     @SerializedName("nama")
     private String mNama;

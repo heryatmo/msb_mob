@@ -33,37 +33,37 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        view();
-    }
-    private void view(){
-        recyclerView = (RecyclerView) findViewById(R.id.rv_post_list);
-        recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        loadJSON();
-    }
 
-    private void loadJSON(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://msb.bluebox2.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        APIService request = retrofit.create(APIService.class);
-        Call<PostResponse> call = request.getPost();
-        call.enqueue(new Callback<PostResponse>() {
-            @Override
-            public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
-                PostResponse postResponse = response.body();
-                data = new ArrayList<>(Arrays.asList(postResponse.getPost()));
-                adapter = new PostAdapter(data);
-                recyclerView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onFailure(Call<PostResponse> call, Throwable t) {
-                Log.d("Error", t.getMessage());
-            }
-        });
     }
+//    private void view(){
+//        recyclerView = findViewById(R.id.rv_post_list);
+//        recyclerView.setHasFixedSize(true);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        loadJSON();
+//    }
+//
+//    private void loadJSON(){
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://msb.bluebox2.com/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        APIService request = retrofit.create(APIService.class);
+//        Call<PostResponse> call = request.getPost();
+//        call.enqueue(new Callback<PostResponse>() {
+//            @Override
+//            public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
+//                PostResponse postResponse = response.body();
+//                data = new ArrayList<>(Arrays.asList(postResponse.getPost()));
+//                adapter = new PostAdapter(data);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PostResponse> call, Throwable t) {
+//                Log.d("Error", t.getMessage());
+//            }
+//        });
+//    }
 }

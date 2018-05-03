@@ -18,9 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".InfoActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".DaftarActivity" />
+        <activity android:name=".DonasiActivity" />
+        <activity
+            android:name=".BNavActivity"
+            android:label="@string/title_activity_bnav"></activity>
     </application>
 
 </manifest>
