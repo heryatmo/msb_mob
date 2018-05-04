@@ -1,6 +1,4 @@
-
 package com.example.heryatmo.msb_mob.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
@@ -8,13 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-
 @lombok.Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@SuppressWarnings("unused")
-public class Data {
+
+public class RegisterResponse {
 
     @SerializedName("alamat")
     private String mAlamat;
@@ -46,7 +43,7 @@ public class Data {
     private String mTempatLahir;
     @SerializedName("updated_at")
     private String mUpdatedAt;
-    @SerializedName("username")
-    private String mUsername;
+    @SerializedName("password")
+    private String mPassword;
 
 }

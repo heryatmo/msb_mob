@@ -10,12 +10,13 @@ import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.model.Post;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
-    private ArrayList<Post> post;
+    private List<Post> post;
 
-    public PostAdapter(ArrayList<Post> post){
+    public PostAdapter(List<Post> post){
         this.post = post;
     }
 
@@ -28,8 +29,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(PostAdapter.ViewHolder holder, int position) {
-        holder.tv_nama.setText(post.get(position).getNama());
-        holder.tv_kebutuhan.setText(post.get(position).getKebutuhan());
+        holder.tv_nama.setText(post.get(position).getMNama());
+        holder.tv_kebutuhan.setText(post.get(position).getMKebutuhan());
     }
 
     @Override

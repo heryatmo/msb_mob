@@ -1,6 +1,4 @@
-
-package com.example.heryatmo.msb_mob.model;
-
+package com.example.heryatmo.msb_mob.response;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -12,17 +10,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@SuppressWarnings("unused")
-public class User {
+
+public class RegisterResponse {
 
     @SerializedName("codeStatus")
     private Long mCodeStatus;
     @SerializedName("data")
-    private Data mData;
+    private com.example.heryatmo.msb_mob.model.RegisterResponse mData;
     @SerializedName("isSuccess")
     private Boolean mIsSuccess;
     @SerializedName("message")
     private String mMessage;
-
 
 }

@@ -4,6 +4,15 @@ package com.example.heryatmo.msb_mob.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+
+@lombok.Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 
 @SuppressWarnings("unused")
 public class Role {
@@ -21,52 +30,5 @@ public class Role {
     @SerializedName("updated_at")
     private String mUpdatedAt;
 
-    public String getCreatedAt() {
-        return mCreatedAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        mCreatedAt = createdAt;
-    }
-
-    public Object getDeletedAt() {
-        return mDeletedAt;
-    }
-
-    public void setDeletedAt(Object deletedAt) {
-        mDeletedAt = deletedAt;
-    }
-
-    public Long getIdRole() {
-        return mIdRole;
-    }
-
-    public void setIdRole(Long idRole) {
-        mIdRole = idRole;
-    }
-
-    public String getNamaRole() {
-        return mNamaRole;
-    }
-
-    public void setNamaRole(String namaRole) {
-        mNamaRole = namaRole;
-    }
-
-    public String getStatusRole() {
-        return mStatusRole;
-    }
-
-    public void setStatusRole(String statusRole) {
-        mStatusRole = statusRole;
-    }
-
-    public String getUpdatedAt() {
-        return mUpdatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        mUpdatedAt = updatedAt;
-    }
 
 }
