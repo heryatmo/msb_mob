@@ -51,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         golongandarah = findViewById(R.id.spgolongan_darah);
         jeniskelamin = findViewById(R.id.spjenis_kelamin);
         bTanggal = findViewById(R.id.btnTanggal);
-        id_role = (Spinner) findViewById(R.id.spPilihRole);
+//        id_role = (Spinner) findViewById(R.id.spPilihRole);
         bSubmit = findViewById(R.id.btnSubmit);
         bSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,28 +60,28 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        Role role = Role.builder()
-                .mIdRole(Long.parseLong("1"))
-                .mNamaRole("Admin")
-                .build();
-        Role role1 = Role.builder()
-                .mIdRole(Long.parseLong("2"))
-                .mNamaRole("Shelter Manager")
-                .build();
-
-
-        list = new ArrayList<>();
-        list.add(role);
-        list.add(role1);
-
-        List<String> stringList = new ArrayList<>();
-        stringList.add(role.getMNamaRole());
-        stringList.add(role1.getMNamaRole());
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.support_simple_spinner_dropdown_item, stringList);
-
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        id_role.setAdapter(spinnerArrayAdapter);
+//        Role role = Role.builder()
+//                .mIdRole(Long.parseLong("1"))
+//                .mNamaRole("Admin")
+//                .build();
+//        Role role1 = Role.builder()
+//                .mIdRole(Long.parseLong("2"))
+//                .mNamaRole("Shelter Manager")
+//                .build();
+//
+//
+//        list = new ArrayList<>();
+//        list.add(role);
+//        list.add(role1);
+//
+//        List<String> stringList = new ArrayList<>();
+//        stringList.add(role.getMNamaRole());
+//        stringList.add(role1.getMNamaRole());
+//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+//                this, R.layout.support_simple_spinner_dropdown_item, stringList);
+//
+//        spinnerArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+//        id_role.setAdapter(spinnerArrayAdapter);
     }
 
     private void register() {
@@ -125,7 +125,6 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
-
-        Toast.makeText(this, String.valueOf(list.get(id_role.getSelectedItemPosition()).getMIdRole()), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, String.valueOf(list.get(id_role.getSelectedItemPosition()).getMIdRole()), Toast.LENGTH_SHORT).show();
     }
 }

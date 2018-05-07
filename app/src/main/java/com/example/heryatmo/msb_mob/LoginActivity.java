@@ -1,6 +1,9 @@
 package com.example.heryatmo.msb_mob;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,14 +26,17 @@ public class LoginActivity extends AppCompatActivity {
     Button btnSignup;
     EditText edemail;
     EditText edpassword;
+    SessionManager session;
 
-
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        loadPreferences();
 
+        session = new SessionManager(getApplicationContext());
         edemail= findViewById(R.id.txtEmail);
         edpassword = findViewById(R.id.txtPassword);
         btnLogin =  findViewById(R.id.btnLogin);
@@ -60,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void doLogin(final String email, String password)
+    private void doLogin(final String email, final String password)
     {
         Call<User> call = APIUtils.getUserService().loginRequest(email, password);
         call.enqueue(new Callback<User>() {
@@ -69,8 +75,9 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful())
                 {
                     User user = response.body();
-                    Toast.makeText(getBaseContext(), "Login Berhasil", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class );
+                    savePreferences(email,password,user.getMData().getMIdRole());
+                    Toast.makeText(getBaseContext(), "Selamat Datang", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class );
                     startActivity(intent);
 
                     finish();
@@ -101,4 +108,24 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    private void loadPreferences(){
+        sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        String email = sp.getString("email","-");
+        String password = sp.getString("password","-");
+        String id_role = sp.getString("id_role","-");
+        if(!email.equals("-") && !password.equals("-") && !id_role.equals("-")){
+            doLogin(email,password);
+        }
+    }
+
+    private  void savePreferences(String email, String password, String id_role){
+        sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("email",email);
+        editor.putString("password",password);
+        editor.putString("id_role", id_role);
+        editor.commit();
+    }
+
 }

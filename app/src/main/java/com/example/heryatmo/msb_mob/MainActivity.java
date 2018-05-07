@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout lydaftar,lyinfo,lydonasi;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

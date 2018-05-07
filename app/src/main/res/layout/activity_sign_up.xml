@@ -27,25 +27,25 @@
                 android:padding="16dp"
                 android:src="@drawable/msblogo" />
 
-            <Spinner
-                android:id="@+id/spPilihRole"
-                android:layout_width="fill_parent"
-                android:layout_height="36dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_whatshot_black_18dp"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Golongan Darah"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:textColorHint="#fff"
-                android:visibility="visible" />
+            <!--<Spinner-->
+                <!--android:id="@+id/spPilihRole"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="36dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:drawableLeft="@drawable/ic_whatshot_black_18dp"-->
+                <!--android:drawablePadding="12dp"-->
+                <!--android:ems="10"-->
+                <!--android:hint="Golongan Darah"-->
+                <!--android:maxLines="1"-->
+                <!--android:padding="8dp"-->
+                <!--android:textColorHint="#fff"-->
+                <!--android:visibility="visible" />-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f9d7db"/>
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#f9d7db"/>-->
 
 
             <EditText
@@ -127,60 +127,103 @@
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
 
-            <EditText
-                android:id="@+id/txtTanggalLahir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_date_range_black_18dp"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Tanggal Lahir"
-                android:inputType="date"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:textColorHint="#fff" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/txtTanggalLahir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_date_range_black_18dp"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColorHint="#fff" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/btnTanggal"
+                    android:onClick="dateWow"
+                    android:hint="Pilih Tanggal"/>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnTanggal"
-                android:onClick="dateWow"/>
 
-            <Spinner
-                android:id="@+id/spjenis_kelamin"
-                android:entries="@array/jenis_kelamin"
-                android:layout_width="fill_parent"
-                android:layout_height="36dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_wc_black_18dp"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Jenis Kelamin"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:textColorHint="#fff"
-                android:visibility="visible" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Jenis Kelamin :"
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/ic_wc_black_18dp"
+                    android:drawablePadding="12dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginLeft="7dp"/>
+                <Spinner
+                    android:id="@+id/spjenis_kelamin"
+                    android:entries="@array/jenis_kelamin"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_wc_black_18dp"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Jenis Kelamin"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColorHint="#fff"
+                    android:visibility="visible" />
+            </LinearLayout>
+
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="2"
+                android:drawableLeft="@drawable/ic_whatshot_black_18dp"
+                android:drawablePadding="12dp"
+                android:text="Golongan Darah :"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
 
             <Spinner
                 android:id="@+id/spgolongan_darah"
                 android:entries="@array/golongan_darah"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="36dp"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_whatshot_black_18dp"
                 android:drawablePadding="12dp"
                 android:ems="10"
                 android:hint="Golongan Darah"
@@ -189,10 +232,14 @@
                 android:textColorHint="#fff"
                 android:visibility="visible" />
 
+        </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
+
+
 
             <EditText
                 android:id="@+id/txtAlamat"
