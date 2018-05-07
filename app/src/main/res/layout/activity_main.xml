@@ -55,7 +55,8 @@
                         android:text="Daftar"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="24dp" />
+                        android:textSize="24dp"
+                        android:id="@+id/tvTest"/>
                 </LinearLayout>
 
                 <LinearLayout

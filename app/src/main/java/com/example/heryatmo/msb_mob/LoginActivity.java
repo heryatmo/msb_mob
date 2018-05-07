@@ -26,17 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     Button btnSignup;
     EditText edemail;
     EditText edpassword;
-    SessionManager session;
 
-    private SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loadPreferences();
 
-        session = new SessionManager(getApplicationContext());
         edemail= findViewById(R.id.txtEmail);
         edpassword = findViewById(R.id.txtPassword);
         btnLogin =  findViewById(R.id.btnLogin);
@@ -76,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     User user = response.body();
                     savePreferences(email,password,user.getMData().getMIdRole());
-                    Toast.makeText(getBaseContext(), "Selamat Datang", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getBaseContext(), "Selamat Datang", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class );
                     startActivity(intent);
 
@@ -109,23 +106,14 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    private void loadPreferences(){
-        sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
-        String email = sp.getString("email","-");
-        String password = sp.getString("password","-");
-        String id_role = sp.getString("id_role","-");
-        if(!email.equals("-") && !password.equals("-") && !id_role.equals("-")){
-            doLogin(email,password);
-        }
-    }
-
     private  void savePreferences(String email, String password, String id_role){
-        sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("email",email);
         editor.putString("password",password);
         editor.putString("id_role", id_role);
         editor.commit();
     }
+
 
 }

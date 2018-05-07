@@ -1,6 +1,7 @@
 package com.example.heryatmo.msb_mob;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -97,11 +98,14 @@ public class SignUpActivity extends AppCompatActivity {
                 .mNoHp(no_hp.getText().toString())
                 .build();
         Retrofit retrofit = RetroClient.getClient();
-        Call<com.example.heryatmo.msb_mob.response.RegisterResponse> call = retrofit.create(APIService.class).registerKampret(dataUser);
+        Call<com.example.heryatmo.msb_mob.response.RegisterResponse> call = retrofit.create(APIService.class).registerRequest(dataUser);
         call.enqueue(new Callback<com.example.heryatmo.msb_mob.response.RegisterResponse>() {
             @Override
             public void onResponse(Call<com.example.heryatmo.msb_mob.response.RegisterResponse> call, Response<com.example.heryatmo.msb_mob.response.RegisterResponse> response) {
-                
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class );
+                startActivity(intent);
+
+                finish();
             }
 
             @Override
