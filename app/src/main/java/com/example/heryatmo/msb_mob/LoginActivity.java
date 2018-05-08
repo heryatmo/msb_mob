@@ -70,11 +70,21 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful())
                 {
                     UserResponse user = response.body();
-                    savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class );
-                    startActivity(intent);
+                    if(user.getMData().getMIdRole().toString().equalsIgnoreCase("3")){
+                        savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
+                        Intent intent = new Intent(getApplicationContext(),VolunteerMainActivity.class );
+                        startActivity(intent);
 
-                    finish();
+                        finish();
+                    }else if(user.getMData().getMIdRole().toString().equalsIgnoreCase("4")){
+                        savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
+                        Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+                        startActivity(intent);
+
+                        finish();
+                    }
+
+
                 }
                 else
                 {

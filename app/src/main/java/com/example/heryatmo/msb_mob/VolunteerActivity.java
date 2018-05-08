@@ -121,7 +121,7 @@ public class VolunteerActivity extends AppCompatActivity {
                 .build();
 
         Retrofit retrofit = RetroClient.getClient();
-        Call<DaftarResponse> call = retrofit.create(APIService.class).daftarPeranRequest(data);
+        Call<DaftarResponse> call = retrofit.create(APIService.class).daftarPeranRequest(data,id_user);
         call.enqueue(new Callback<DaftarResponse>() {
             @Override
             public void onResponse(Call<DaftarResponse> call, Response<DaftarResponse> response) {

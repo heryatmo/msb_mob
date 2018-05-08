@@ -25,5 +25,12 @@ public class DaftarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        layShel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 }

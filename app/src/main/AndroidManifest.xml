@@ -28,7 +28,8 @@
             android:label="@string/title_activity_bnav" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".VolunteerActivity" />
-        <activity android:name=".LogistikActivity"></activity>
+        <activity android:name=".LogistikActivity" />
+        <activity android:name=".VolunteerMainActivity"></activity>
     </application>
 
 </manifest>

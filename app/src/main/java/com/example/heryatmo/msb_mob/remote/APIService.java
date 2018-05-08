@@ -15,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface APIService {
 
@@ -29,11 +30,11 @@ public interface APIService {
 
     @POST("api/v1/daftarPeran/{id}")
     Call<DaftarResponse>
-    daftarPeranRequest(@Body DaftarPeran dataDaftar);
+    daftarPeranRequest(@Body DaftarPeran dataDaftar, @Path("id") String id);
 
     @POST("api/v1/logistik/{id}")
     Call<LogistikResponse>
-    logistikRequest(@Body Logistik logistik);
+    logistikRequest(@Body Logistik logistik, @Path("id") String id);
 
     @GET("api/v1/tampilPost")
     Call<TestResponse> getPost();

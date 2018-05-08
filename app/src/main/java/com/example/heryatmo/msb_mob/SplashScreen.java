@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.heryatmo.msb_mob.response.UserResponse;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -31,9 +33,17 @@ public class SplashScreen extends AppCompatActivity {
         String password = sp.getString("password","-");
         String id_role = sp.getString("id_role","-");
         if(!email.equals("-") && !password.equals("-") && !id_role.equals("-")){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-            finish();
+            if(id_role == "3"){
+                Intent intent = new Intent(getApplicationContext(),VolunteerMainActivity.class );
+                startActivity(intent);
+
+                finish();
+            }else if(id_role == "4"){
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+                startActivity(intent);
+
+                finish();
+            }
         }
         else{
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));

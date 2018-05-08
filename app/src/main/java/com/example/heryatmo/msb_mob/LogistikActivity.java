@@ -56,7 +56,7 @@ public class LogistikActivity extends AppCompatActivity {
                 .build();
 
         Retrofit retrofit = RetroClient.getClient();
-        Call<LogistikResponse> call = retrofit.create(APIService.class).logistikRequest(dataLogistik);
+        Call<LogistikResponse> call = retrofit.create(APIService.class).logistikRequest(dataLogistik,id_user);
         call.enqueue(new Callback<LogistikResponse>() {
             @Override
             public void onResponse(Call<LogistikResponse> call, Response<LogistikResponse> response) {
