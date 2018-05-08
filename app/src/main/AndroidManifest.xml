@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VolunteerActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +27,8 @@
             android:name=".BNavActivity"
             android:label="@string/title_activity_bnav" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".VolunteerActivity" />
+        <activity android:name=".LogistikActivity"></activity>
     </application>
 
 </manifest>

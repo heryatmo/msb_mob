@@ -1,9 +1,9 @@
+
 package com.example.heryatmo.msb_mob.response;
 
-import com.example.heryatmo.msb_mob.model.Post;
-import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import com.example.heryatmo.msb_mob.model.User;
+import com.google.gson.annotations.SerializedName;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,15 +14,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuppressWarnings("unused")
-public class TestResponse {
+public class UserResponse {
 
     @SerializedName("codeStatus")
     private Long mCodeStatus;
     @SerializedName("data")
-    private List<Post> mData;
+    private User mData;
     @SerializedName("isSuccess")
     private Boolean mIsSuccess;
     @SerializedName("message")
     private String mMessage;
+
 
 }

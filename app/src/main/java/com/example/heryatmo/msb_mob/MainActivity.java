@@ -33,11 +33,8 @@ public class MainActivity extends AppCompatActivity {
         lydaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
-                String id_role = sp.getString("id_role","-");
-                tvTest.setText("R : "+id_role);
-//                Intent intent = new Intent(MainActivity.this,DaftarActivity.class );
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,DaftarActivity.class );
+                startActivity(intent);
             }
         });
 

@@ -30,11 +30,11 @@
         android:weightSum="3">
 
         <LinearLayout
-            android:id="@+id/layVolunteer"
+            android:id="@+id/layUang"
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorMint"
+            android:background="@color/colorGrapeFruit"
             android:orientation="vertical">
 
             <ImageView
@@ -42,13 +42,13 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/ic_group_add_black_24dp" />
+                android:src="@drawable/ic_monetization_on_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorMintDark"
+                android:background="@color/colorGrapeFruitDark"
                 android:padding="8dp"
                 android:text="Uang"
                 android:textAlignment="center"
@@ -56,11 +56,11 @@
                 android:textSize="24dp" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/laySManager"
+            android:id="@+id/layLogistik"
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorBlueJeans"
+            android:background="@color/colorLavander"
             android:orientation="vertical">
 
             <ImageView
@@ -68,13 +68,13 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/ic_group_add_black_24dp" />
+                android:src="@drawable/ic_business_center_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorBlueJeansDark"
+                android:background="@color/colorLavanderDark"
                 android:padding="8dp"
                 android:text="Logistik"
                 android:textAlignment="center"

@@ -1,6 +1,5 @@
 package com.example.heryatmo.msb_mob;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,8 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.heryatmo.msb_mob.model.User;
-import com.example.heryatmo.msb_mob.remote.APIService;
+import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.remote.APIUtils;
 
 import retrofit2.Call;
@@ -65,15 +63,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void doLogin(final String email, final String password)
     {
-        Call<User> call = APIUtils.getUserService().loginRequest(email, password);
-        call.enqueue(new Callback<User>() {
+        Call<UserResponse> call = APIUtils.getUserService().loginRequest(email, password);
+        call.enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if(response.isSuccessful())
                 {
-                    User user = response.body();
-                    savePreferences(email,password,user.getMData().getMIdRole());
-//                    Toast.makeText(getBaseContext(), "Selamat Datang", Toast.LENGTH_LONG).show();
+                    UserResponse user = response.body();
+                    savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class );
                     startActivity(intent);
 
@@ -81,13 +78,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getBaseContext(), "Error! Silahkan coba lagi.", Toast.LENGTH_LONG).show();
+                    Log.i("Failed","Login Gagal");
+                    Toast.makeText(getBaseContext(), "Username atau Password Salah", Toast.LENGTH_LONG).show();
                 }
 
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserResponse> call, Throwable t) {
                 Log.i("Failed","Login Gagal");
                 Toast.makeText(getBaseContext(), "Username atau Password Salah", Toast.LENGTH_LONG).show();
             }
@@ -106,12 +104,13 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    private  void savePreferences(String email, String password, String id_role){
+    private  void savePreferences(String email, String password, String id_role, String id_user){
         SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("email",email);
         editor.putString("password",password);
         editor.putString("id_role", id_role);
+        editor.putString("id_user", id_user);
         editor.commit();
     }
 

@@ -1,18 +1,23 @@
 package com.example.heryatmo.msb_mob;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.Role;
 import com.example.heryatmo.msb_mob.model.SemuaShelter;
 import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
+import com.example.heryatmo.msb_mob.response.DaftarResponse;
 import com.example.heryatmo.msb_mob.response.ShelterResponse;
 
 import java.util.ArrayList;
@@ -27,8 +32,8 @@ public class VolunteerActivity extends AppCompatActivity {
 
     List<Role> list;
     Spinner id_role,sShelter;
-    Context mContext;
-    Response<ShelterResponse> response;
+    String  id_user;
+    Button bDaftar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +41,21 @@ public class VolunteerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_volunteer);
 
         id_role = (Spinner) findViewById(R.id.id);
+        SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        id_user  = sp.getString("id_user","-");
         initSpinnerShelter();
 
-//        sShelter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                String selectedName = adapterView.getItemAtPosition(i).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
+        sShelter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedName = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         Role role = Role.builder()
                 .mIdRole(Long.parseLong("3"))
@@ -68,6 +75,14 @@ public class VolunteerActivity extends AppCompatActivity {
         id_role.setAdapter(spinnerArrayAdapter);
 
 
+        bDaftar = findViewById(R.id.daftarPeran);
+        bDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                daftarPeran();
+            }
+        });
+
     }
 
     private void initSpinnerShelter(){
@@ -84,14 +99,41 @@ public class VolunteerActivity extends AppCompatActivity {
                 for(int i=0; i < semuaShelter.size() ; i++){
                     listSpinner.add(semuaShelter.get(i).getMNamaShelter());
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
-                        R.layout.support_simple_spinner_dropdown_item, listSpinner);
-                adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-                sShelter.setAdapter(adapter);
+                if(getApplicationContext()!=null) {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
+                            R.layout.support_simple_spinner_dropdown_item, listSpinner);
+                    adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+                    sShelter.setAdapter(adapter);
+                }
             }
             @Override
             public void onFailure(Call<ShelterResponse> call, Throwable t) {
-                Toast.makeText(mContext, "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void daftarPeran(){
+        DaftarPeran data = DaftarPeran.builder()
+                .mIdRole(id_role.getSelectedItem().toString())
+                .mIdShelter(sShelter.getSelectedItem().toString())
+                .mIdUser(id_user)
+                .build();
+
+        Retrofit retrofit = RetroClient.getClient();
+        Call<DaftarResponse> call = retrofit.create(APIService.class).daftarPeranRequest(data);
+        call.enqueue(new Callback<DaftarResponse>() {
+            @Override
+            public void onResponse(Call<DaftarResponse> call, Response<DaftarResponse> response) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+                startActivity(intent);
+
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<DaftarResponse> call, Throwable t) {
+
             }
         });
     }

@@ -8,12 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-
 @lombok.Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 @SuppressWarnings("unused")
 public class Role {
 
