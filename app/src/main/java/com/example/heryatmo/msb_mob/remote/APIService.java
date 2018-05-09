@@ -1,8 +1,11 @@
 package com.example.heryatmo.msb_mob.remote;
 
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
+import com.example.heryatmo.msb_mob.model.Donasi;
+import com.example.heryatmo.msb_mob.response.JenisResponse;
 import com.example.heryatmo.msb_mob.model.Logistik;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
+import com.example.heryatmo.msb_mob.response.DonasiResponse;
 import com.example.heryatmo.msb_mob.response.LogistikResponse;
 import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.response.DaftarResponse;
@@ -18,6 +21,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface APIService {
+
+    //----------------------------- POST ----------------------------------------------------------------
 
     @POST("api/v1/loginAPI")
     @FormUrlEncoded
@@ -36,11 +41,20 @@ public interface APIService {
     Call<LogistikResponse>
     logistikRequest(@Body Logistik logistik, @Path("id") String id);
 
+    @POST("api/v1/donasi/{id}")
+    Call<DonasiResponse>
+    donasiRequest(@Body Donasi donasi, @Path("id") String id);
+
+    //------------------------------- GET ----------------------------------------------------------------
+
     @GET("api/v1/tampilPost")
     Call<TestResponse> getPost();
 
     @GET("api/v1/tampilShelter")
     Call<ShelterResponse> getShelter();
+
+    @GET("api/v1/tampilJenis")
+    Call<JenisResponse> getJenis();
 
 //    @POST("api/v1/registerUser")
 //    Call<com.example.heryatmo.msb_mob.response.RegisterResponse>
