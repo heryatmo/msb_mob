@@ -1,9 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".VolunteerMainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:background="@drawable/msblogo"
+                android:textAlignment="center"
+
+                android:textSize="24dp"
+                android:gravity="bottom"
+                android:textColor="@color/colorFlowerDark"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:id="@+id/layPengungsi"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorMint"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_group_add_black_24dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorMintDark"
+                        android:padding="8dp"
+                        android:text="Data Pengungsi"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:id="@+id/tvTest"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layDisLogistik"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/colorPinkRose">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_monetization_on_24dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorPinkRoseDark"
+                        android:text="Distribusi Logistik"
+                        android:textSize="20dp"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--second row-->
+            <LinearLayout
+                android:id="@+id/layInformasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <LinearLayout
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/colorGrapeFruit">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_info_outline_24dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorGrapeFruitDark"
+                        android:text="Informasi"
+                        android:textSize="24dp"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layLogout"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/colorLavander">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_subdirectory_arrow_right_24dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorLavanderDark"
+                        android:text="Log Out"
+                        android:textSize="24dp"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--end second row-->
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

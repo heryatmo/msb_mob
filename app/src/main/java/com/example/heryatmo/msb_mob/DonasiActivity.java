@@ -10,7 +10,7 @@ import com.example.heryatmo.msb_mob.model.Logistik;
 
 public class DonasiActivity extends AppCompatActivity {
 
-    LinearLayout lyLogistik;
+    LinearLayout lyLogistik,lydonasiUang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,15 @@ public class DonasiActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DonasiActivity.this, LogistikActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        lydonasiUang = findViewById(R.id.layUang);
+        lydonasiUang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DonasiActivity.this, DonasiUangActivity.class );
                 startActivity(intent);
             }
         });
