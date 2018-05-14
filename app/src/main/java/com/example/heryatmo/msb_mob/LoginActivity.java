@@ -86,7 +86,14 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
 
                             finish();
+                        } else if (user.getMData().getMIdRole().toString().equalsIgnoreCase("2")) {
+                            savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            Intent intent = new Intent(getApplicationContext(), MainMshelterActivity.class);
+                            startActivity(intent);
+
+                            finish();
                         }
+
 
 
                     } else {

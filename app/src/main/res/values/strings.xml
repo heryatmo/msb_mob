@@ -24,6 +24,14 @@
         <item>Wanita</item>
     </string-array>
 
+    <string-array name="status">
+        <item>Balita</item>
+        <item>Anak-anak</item>
+        <item>Dewasa</item>
+        <item>Manula</item>
+        <item>Disabilitas</item>
+    </string-array>
+
     <string name="permission_dialog">Accessing Location Permissions required</string>
     <string name="go_to_permissions_settings">Go to App settings and enable permissions</string>
 </resources>

@@ -37,7 +37,12 @@
         <activity android:name=".VolunteerMainActivity" />
         <activity android:name=".DonasiUangActivity" />
         <activity android:name=".MShelterActivity" />
-        <activity android:name=".MainMshelterActivity"></activity>
+        <activity android:name=".MainMshelterActivity" />
+        <activity android:name=".PengungsiActivity" />
+        <activity android:name=".PengungsiMainActivity" />
+        <activity android:name=".DashboardVolunteerActivity" />
+        <activity android:name=".DashboardShelterActivity" />
+        <activity android:name=".FormShelterActivity"></activity>
     </application>
 
 </manifest>
