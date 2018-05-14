@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import retrofit2.Retrofit;
 public class LogistikActivity extends AppCompatActivity {
 
     TextView tvNamaLogistik,tvJumlahLogistik,tvKeterangan;
+
     String id_user;
     Button bSubmitLog;
     @Override
@@ -38,6 +40,7 @@ public class LogistikActivity extends AppCompatActivity {
         tvNamaLogistik = findViewById(R.id.txtNamaLog);
         tvJumlahLogistik = findViewById(R.id.txtJumlahLog);
         tvKeterangan = findViewById(R.id.txtKeteranganLog);
+
         bSubmitLog = findViewById(R.id.btnSubmitLog);
         bSubmitLog.setOnClickListener(new View.OnClickListener() {
             @Override

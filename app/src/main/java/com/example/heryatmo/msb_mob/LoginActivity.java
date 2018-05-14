@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.remote.APIUtils;
+import com.google.gson.annotations.Expose;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         edpassword = findViewById(R.id.txtPassword);
         btnLogin =  findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignUp);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,36 +71,38 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                if(response.isSuccessful())
-                {
-                    UserResponse user = response.body();
-                    if(user.getMData().getMIdRole().toString().equalsIgnoreCase("3")){
-                        savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
-                        Intent intent = new Intent(getApplicationContext(),VolunteerMainActivity.class );
-                        startActivity(intent);
+                try {
+                    if (response.isSuccessful()) {
+                        UserResponse user = response.body();
+                        if (user.getMData().getMIdRole().toString().equalsIgnoreCase("3")) {
+                            savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            Intent intent = new Intent(getApplicationContext(), VolunteerMainActivity.class);
+                            startActivity(intent);
 
-                        finish();
-                    }else if(user.getMData().getMIdRole().toString().equalsIgnoreCase("4")){
-                        savePreferences(email,password,user.getMData().getMIdRole(),user.getMData().getMIdUser().toString());
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class );
-                        startActivity(intent);
+                            finish();
+                        } else if (user.getMData().getMIdRole().toString().equalsIgnoreCase("4")) {
+                            savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
 
-                        finish();
+                            finish();
+                        }
+
+
+                    } else {
+                        Log.i("Failed", "Login Gagal");
+                        Toast.makeText(getBaseContext(), "Username atau Password Salah", Toast.LENGTH_LONG).show();
                     }
-
-
                 }
-                else
-                {
-                    Log.i("Failed","Login Gagal");
+                catch (Exception e) {
+                    Log.i("Failed", "Login Gagal");
                     Toast.makeText(getBaseContext(), "Username atau Password Salah", Toast.LENGTH_LONG).show();
                 }
-
             }
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-                Log.i("Failed","Login Gagal");
+                Log.i("Failed", "Login Gagal");
                 Toast.makeText(getBaseContext(), "Username atau Password Salah", Toast.LENGTH_LONG).show();
             }
         });

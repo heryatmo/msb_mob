@@ -65,29 +65,31 @@
                 android:background="#f9d7db"/>
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/txtUploadImage"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:layout_weight="2"
-                    android:layout_marginTop="5dp"
                     android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/ic_date_range_black_18dp"
                     android:drawablePadding="12dp"
                     android:ems="10"
-                    android:inputType="date"
+                    android:hint="Upload Foto"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColorHint="#fff" />
-
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imgView" />
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/imgView"
+                    android:visibility="invisible" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -95,9 +97,9 @@
                     android:layout_weight="1"
                     android:layout_gravity="right"
                     android:id="@+id/btnUpload"
-                    android:hint="Pilih file"/>
+                    android:hint="Pilih file" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -105,7 +107,7 @@
                 android:background="#f9d7db"/>
 
             <EditText
-                android:id="@+id/txtKeteranganLog"
+                android:id="@+id/txtKeteranganDon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -123,8 +125,17 @@
                 android:layout_height="1dp"
                 android:background="#f9d7db"/>
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/btnSubmitUang"
+                android:layout_marginTop="30dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/background_login"
+                android:text="Submit"/>
 
+
+        </LinearLayout>
 
     </ScrollView>
 

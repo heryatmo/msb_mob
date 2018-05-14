@@ -22,8 +22,8 @@ public class JenisResponse {
     private Long mCodeStatus;
     @SerializedName("isSuccess")
     private Boolean mIsSuccess;
-    @SerializedName("jenis")
-    private List<Jenis> mJenis;
+    @SerializedName("data")
+    private List<Jenis> mData;
     @SerializedName("message")
     private String mMessage;
 

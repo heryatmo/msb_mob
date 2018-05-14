@@ -49,7 +49,6 @@ public class InfoActivity extends AppCompatActivity {
         call.enqueue(new Callback<TestResponse>() {
             @Override
             public void onResponse(Call<TestResponse> call, Response<TestResponse> response) {
-                Log.d("fghfhgfghf", response.body().getMMessage());
                 recycleList(response.body());
             }
 

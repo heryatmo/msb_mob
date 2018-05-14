@@ -3,15 +3,20 @@ package com.example.heryatmo.msb_mob;
 import android.Manifest;
 import android.app.Activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -24,34 +29,72 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import com.example.heryatmo.msb_mob.model.Donasi;
+import com.example.heryatmo.msb_mob.model.Jenis;
+import com.example.heryatmo.msb_mob.model.Role;
+import com.example.heryatmo.msb_mob.model.SemuaShelter;
+import com.example.heryatmo.msb_mob.remote.APIService;
+import com.example.heryatmo.msb_mob.remote.RetroClient;
+import com.example.heryatmo.msb_mob.response.DonasiResponse;
+import com.example.heryatmo.msb_mob.response.JenisResponse;
+import com.example.heryatmo.msb_mob.response.LogistikResponse;
+import com.example.heryatmo.msb_mob.response.ShelterResponse;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+import static android.graphics.Color.GREEN;
+import static android.hardware.camera2.params.RggbChannelVector.BLUE;
+import static android.hardware.camera2.params.RggbChannelVector.RED;
+import static java.lang.Double.SIZE;
 
 
 public class DonasiUangActivity extends AppCompatActivity {
 
 
-    Button bUpload;
-    TextView txtTitle;
-    Intent intent;
-    Uri fileUri;
+    Button bUpload,bSubmitUang;
+    Spinner spJenis;
+    TextView txtTitle,txtJumlahUang,txtKeterangan;
     ImageView imageView;
-    Bitmap bitmap, decoded;
-    public final int REQUEST_CAMERA = 0;
-    public final int SELECT_FILE = 1;
+    boolean flag;
 
-    int bitmap_size = 40; // image quality 1 - 100;
-    int max_resolution_image = 800;
+    String id_user;
+    Bitmap bi = null;
+
+    boolean isColored;
+
+    private int SIZE = 256;
+    // Red, Green, Blue
+    private int NUMBER_OF_COLOURS = 3;
+
+    public final int RED = 0;
+    public final int GREEN = 1;
+    public final int BLUE = 2;
+
+    private int[][] colourBins;
+    private volatile boolean loaded = false;
+
+    float offset = 1;
 
 
 
@@ -61,125 +104,213 @@ public class DonasiUangActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donasi_uang);
 
+        initSpinnerJenis();
+
+        SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        id_user  = sp.getString("id_user","-");
+
+        spJenis = findViewById(R.id.spJenis);
+        txtJumlahUang = findViewById(R.id.txtJumlahDonasi);
+        txtKeterangan = findViewById(R.id.txtKeteranganDon);
+
         imageView = (ImageView) findViewById(R.id.imgView);
         txtTitle = findViewById(R.id.txtUploadImage);
         bUpload = findViewById(R.id.btnUpload);
+        bSubmitUang = findViewById(R.id.btnSubmitUang);
+
 
 
         bUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectImage();
+                Intent it = new Intent(Intent.ACTION_PICK,
+                        MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(it, 101);
+                flag = true;
             }
         });
 
 
+
+
     }
 
+    private void initSpinnerJenis(){
 
-    private void selectImage() {
-        imageView.setImageResource(0);
-        final CharSequence[] items = {"Take Photo", "Choose from Library",
-                "Cancel"};
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(DonasiUangActivity.this);
-        builder.setTitle("Add Photo!");
-        builder.setIcon(R.mipmap.ic_launcher);
-        builder.setItems(items, new DialogInterface.OnClickListener() {
+        spJenis = findViewById(R.id.spJenis);
+        Retrofit retrofit = RetroClient.getClient();
+        APIService request = retrofit.create(APIService.class);
+        Call<JenisResponse> call = request.getJenis();
+        call.enqueue(new Callback<JenisResponse>() {
             @Override
-            public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Photo")) {
-                    intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    fileUri = getOutputMediaFileUri();
-                    intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
-                    startActivityForResult(intent, REQUEST_CAMERA);
-                } else if (items[item].equals("Choose from Library")) {
-                    intent = new Intent();
-                    intent.setType("image/*");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_FILE);
-                } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
+            public void onResponse(Call<JenisResponse> call, Response<JenisResponse> response) {
+                List<Jenis> semuaJenis = response.body().getMData();
+                List<String> listSpinner = new ArrayList<String>();
+                for(int i=0; i < semuaJenis.size() ; i++){
+                    listSpinner.add(semuaJenis.get(i).getMNamaJenis());
                 }
+                if(getApplicationContext()!=null) {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
+                            R.layout.support_simple_spinner_dropdown_item, listSpinner);
+                    adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+                    spJenis.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onFailure(Call<JenisResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
-        builder.show();
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e("onActivityResult", "requestCode " + requestCode + ", resultCode " + resultCode);
 
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_CAMERA) {
-                try {
-                    Log.e("CAMERA", fileUri.getPath());
+    private void createDonasi(){
+        Donasi dataDonasi = Donasi.builder()
+                .mIdUser(id_user)
+                .mIdJenis(spJenis.getSelectedItem().toString())
+                .mJumlahDonasi(txtJumlahUang.getText().toString())
+                .mBuktiTransfer(imageView.getContext().toString())
+                .mKeterangan(txtKeterangan.getText().toString())
+                .build();
 
-                    bitmap = BitmapFactory.decodeFile(fileUri.getPath());
-                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
-                try {
-                    // mengambil gambar dari Gallery
-                    bitmap = MediaStore.Images.Media.getBitmap(DonasiUangActivity.this.getContentResolver(), data.getData());
-                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        Retrofit retrofit = RetroClient.getClient();
+        Call<DonasiResponse> call = retrofit.create(APIService.class).donasiRequest(dataDonasi,id_user);
+        call.enqueue(new Callback<DonasiResponse>() {
+            @Override
+            public void onResponse(Call<DonasiResponse> call, Response<DonasiResponse> response) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+                startActivity(intent);
+                finish();
             }
+
+            @Override
+            public void onFailure(Call<DonasiResponse> call, Throwable t) {
+                Log.i("Failed","Insert Gagal");
+                Toast.makeText(getBaseContext(), "Data Gagal Masuk", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent){
+        super.onActivityResult(requestCode,resultCode,imageReturnedIntent);
+        switch (requestCode){
+
+            case 101:
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    String filename = getRealPathFromURI(selectedImage);
+                    bi = BitmapFactory.decodeFile(filename);
+                    imageView.setImageURI(selectedImage);
+                    imageView.setVisibility(View.VISIBLE);
+
+                    if (bi != null) {
+                        try {
+                            new MyAsync().execute();
+                        } catch (Exception e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
         }
     }
 
-    // Untuk menampilkan bitmap pada ImageView
-    private void setToImageView(Bitmap bmp) {
-        //compress image
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, bitmap_size, bytes);
-        decoded = BitmapFactory.decodeStream(new ByteArrayInputStream(bytes.toByteArray()));
+    public String getRealPathFromURI(Uri contentUri) {
+        Log.e("TEST", "GetRealPath : " + contentUri);
 
-        //menampilkan gambar yang dipilih dari camera/gallery ke ImageView
-        imageView.setImageBitmap(decoded);
+        try {
+            if (contentUri.toString().contains("video")) {
+                String[] proj = {MediaStore.Video.Media.DATA};
+                Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+                int column_index = cursor
+                        .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+                cursor.moveToFirst();
+                return cursor.getString(column_index);
+            } else {
+                String[] proj = {MediaStore.Images.Media.DATA};
+                Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+                int column_index = cursor
+                        .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                return cursor.getString(column_index);
+            }
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    // Untuk resize bitmap
-    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
-        int width = image.getWidth();
-        int height = image.getHeight();
+    class MyAsync extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+            showDialog(0);
+        }
 
-        float bitmapRatio = (float) width / (float) height;
-        if (bitmapRatio > 1) {
-            width = maxSize;
-            height = (int) (width / bitmapRatio);
+        @Override
+        protected Object doInBackground(Object... params) {
+            // TODO Auto-generated method stub
+
+            try {
+                load(bi);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+
+
+            imageView.setImageBitmap(bi);
+            dismissDialog(0);
+            isColored = true;
+        }
+
+    }
+
+    public void load(Bitmap bi) throws IOException {
+
+        if (bi != null) {
+            // Reset all the bins
+            for (int i = 0; i < NUMBER_OF_COLOURS; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    colourBins[i][j] = 0;
+                }
+            }
+
+            for (int x = 0; x < bi.getWidth(); x++) {
+                for (int y = 0; y < bi.getHeight(); y++) {
+
+                    int pixel = bi.getPixel(x, y);
+
+                    colourBins[RED][Color.red(pixel)]++;
+                    colourBins[GREEN][Color.green(pixel)]++;
+                    colourBins[BLUE][Color.blue(pixel)]++;
+                }
+            }
+
+            int maxY = 0;
+
+            for (int i = 0; i < NUMBER_OF_COLOURS; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    if (maxY < colourBins[i][j]) {
+                        maxY = colourBins[i][j];
+                    }
+                }
+            }
+            loaded = true;
         } else {
-            height = maxSize;
-            width = (int) (height * bitmapRatio);
+            loaded = false;
         }
-        return Bitmap.createScaledBitmap(image, width, height, true);
     }
 
-    public Uri getOutputMediaFileUri() {
-        return Uri.fromFile(getOutputMediaFile());
-    }
-
-    private static File getOutputMediaFile() {
-
-        // External sdcard location
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "DeKa");
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.e("Monitoring", "Oops! Failed create Monitoring directory");
-                return null;
-            }
-        }
-
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-        File mediaFile;
-        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_DeKa_" + timeStamp + ".jpg");
-
-        return mediaFile;
-    }
 }
