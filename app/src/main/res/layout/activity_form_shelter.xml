@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FormShelterActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/msblogo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Pilih Bencana"/>
+    <Spinner
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Volunteer"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMap"
+        android:text="OPEN MAP"/>
+
+    <EditText
+        android:id="@+id/txtEmailRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_email_black_18dp"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Nama Shelter"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f9d7db"/>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_add_location_black_18dp"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Alamat Shelter"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f9d7db"/>
+
+
+    <Button
+        android:id="@+id/daftarPeran"
+        android:layout_marginTop="50dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Daftar"
+        android:background="@drawable/background_signup"/>
+
+
+</LinearLayout>

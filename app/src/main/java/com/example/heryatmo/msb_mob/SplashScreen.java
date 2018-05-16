@@ -37,12 +37,14 @@ public class SplashScreen extends AppCompatActivity {
             if(id_role.equalsIgnoreCase("3")){
                 Intent intent = new Intent(getApplicationContext(),VolunteerMainActivity.class );
                 startActivity(intent);
-
                 finish();
             }else if(id_role.equalsIgnoreCase("4")){
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class );
                 startActivity(intent);
-
+                finish();
+            }else if(id_role.equalsIgnoreCase("2")){
+                Intent intent = new Intent(getApplicationContext(),MainMshelterActivity.class );
+                startActivity(intent);
                 finish();
             }
         }

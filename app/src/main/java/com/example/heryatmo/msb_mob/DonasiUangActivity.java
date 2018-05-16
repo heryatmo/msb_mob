@@ -35,6 +35,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 
 import com.example.heryatmo.msb_mob.model.Donasi;
@@ -130,6 +131,13 @@ public class DonasiUangActivity extends AppCompatActivity {
             }
         });
 
+        bSubmitUang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createDonasi();
+            }
+        });
+
 
 
 
@@ -166,8 +174,8 @@ public class DonasiUangActivity extends AppCompatActivity {
 
     private void createDonasi(){
         Donasi dataDonasi = Donasi.builder()
-                .mIdUser(id_user)
                 .mIdJenis(spJenis.getSelectedItem().toString())
+                .mIdUser(id_user)
                 .mJumlahDonasi(txtJumlahUang.getText().toString())
                 .mBuktiTransfer(imageView.getContext().toString())
                 .mKeterangan(txtKeterangan.getText().toString())
@@ -186,7 +194,7 @@ public class DonasiUangActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<DonasiResponse> call, Throwable t) {
                 Log.i("Failed","Insert Gagal");
-                Toast.makeText(getBaseContext(), "Data Gagal Masuk", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Gagal Masuk", Toast.LENGTH_LONG).show();
             }
         });
     }

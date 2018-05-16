@@ -34,5 +34,8 @@
 
     <string name="permission_dialog">Accessing Location Permissions required</string>
     <string name="go_to_permissions_settings">Go to App settings and enable permissions</string>
+
+    <string name="google_maps_API_key">AIzaSyCb7m_TefPQBGkvxFGOFLG7AOVOCPrDqaM</string>
+
 </resources>
 

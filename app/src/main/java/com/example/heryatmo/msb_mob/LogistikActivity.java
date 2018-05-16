@@ -71,7 +71,7 @@ public class LogistikActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<LogistikResponse> call, Throwable t) {
                 Log.i("Failed","Insert Gagal");
-                Toast.makeText(getBaseContext(), "Data Gagal Masuk", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), " Gagal Masuk", Toast.LENGTH_LONG).show();
             }
         });
     }

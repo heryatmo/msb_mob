@@ -33,7 +33,7 @@ public class VolunteerActivity extends AppCompatActivity {
     List<Role> list;
     Spinner id_role,sShelter;
     String  id_user;
-    Button bDaftar;
+    Button bDaftar,bCek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class VolunteerActivity extends AppCompatActivity {
 
             }
         });
+
 
         Role role = Role.builder()
                 .mIdRole(Long.parseLong("3"))
@@ -82,6 +83,15 @@ public class VolunteerActivity extends AppCompatActivity {
                 daftarPeran();
             }
         });
+
+        bCek = findViewById(R.id.btncekid);
+        bCek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Id User :" + id_user, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 
@@ -115,9 +125,9 @@ public class VolunteerActivity extends AppCompatActivity {
 
     private void daftarPeran(){
         DaftarPeran data = DaftarPeran.builder()
-                .mIdRole(id_role.getSelectedItem().toString())
                 .mIdShelter(sShelter.getSelectedItem().toString())
                 .mIdUser(id_user)
+                .mIdRole(id_role.getSelectedItem().toString())
                 .build();
 
         Retrofit retrofit = RetroClient.getClient();
@@ -133,7 +143,7 @@ public class VolunteerActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DaftarResponse> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
     }
