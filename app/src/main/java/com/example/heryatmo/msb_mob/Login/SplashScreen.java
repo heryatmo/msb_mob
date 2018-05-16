@@ -1,15 +1,16 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.Login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.heryatmo.msb_mob.response.UserResponse;
+import com.example.heryatmo.msb_mob.UserMain.MainActivity;
+import com.example.heryatmo.msb_mob.ShelterManagerMain.MainMshelterActivity;
+import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.VolunteerMain.VolunteerMainActivity;
 
 public class SplashScreen extends AppCompatActivity {
     Intent intent;

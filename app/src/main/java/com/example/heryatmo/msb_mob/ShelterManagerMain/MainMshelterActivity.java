@@ -1,4 +1,4 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.ShelterManagerMain;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,25 +8,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class VolunteerMainActivity extends AppCompatActivity {
+import com.example.heryatmo.msb_mob.Login.LoginActivity;
+import com.example.heryatmo.msb_mob.R;
 
-    LinearLayout layPengungsi,logout;
+public class MainMshelterActivity extends AppCompatActivity {
+
+    LinearLayout shelter,logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer_main);
+        setContentView(R.layout.activity_main_mshelter);
 
-        layPengungsi = findViewById(R.id.layPengungsi);
-        layPengungsi.setOnClickListener(new View.OnClickListener() {
+        shelter = findViewById(R.id.layShelter);
+        shelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(VolunteerMainActivity.this,PengungsiMainActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,ShowShelterActivity.class );
                 startActivity(intent);
             }
         });
-
-        logout = findViewById(R.id.logoutVolunteer);
+        logout = findViewById(R.id.logoutMShelter);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +39,7 @@ public class VolunteerMainActivity extends AppCompatActivity {
                 editor.putString("password","-");
                 editor.putString("id_role", "-");
                 editor.commit();
-                Intent intent = new Intent(VolunteerMainActivity.this,LoginActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,LoginActivity.class );
                 startActivity(intent);
                 finish();
             }

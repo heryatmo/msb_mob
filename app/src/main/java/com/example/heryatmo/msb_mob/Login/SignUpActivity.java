@@ -1,24 +1,22 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.Login;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
 import com.example.heryatmo.msb_mob.model.Role;
 import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;

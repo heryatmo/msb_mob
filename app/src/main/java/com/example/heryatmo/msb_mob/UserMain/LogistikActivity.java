@@ -1,4 +1,4 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.UserMain;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 

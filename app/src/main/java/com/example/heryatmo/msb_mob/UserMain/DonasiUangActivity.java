@@ -1,14 +1,9 @@
-package com.example.heryatmo.msb_mob;
-
-import android.Manifest;
-import android.app.Activity;
+package com.example.heryatmo.msb_mob.UserMain;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 
@@ -17,13 +12,8 @@ import android.graphics.Color;
 import android.net.Uri;
 
 import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Environment;
 import android.provider.MediaStore;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -35,39 +25,24 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 
+import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.model.Donasi;
 import com.example.heryatmo.msb_mob.model.Jenis;
-import com.example.heryatmo.msb_mob.model.Role;
-import com.example.heryatmo.msb_mob.model.SemuaShelter;
 import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
 import com.example.heryatmo.msb_mob.response.DonasiResponse;
 import com.example.heryatmo.msb_mob.response.JenisResponse;
-import com.example.heryatmo.msb_mob.response.LogistikResponse;
-import com.example.heryatmo.msb_mob.response.ShelterResponse;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
-import static android.graphics.Color.GREEN;
-import static android.hardware.camera2.params.RggbChannelVector.BLUE;
-import static android.hardware.camera2.params.RggbChannelVector.RED;
-import static java.lang.Double.SIZE;
 
 
 public class DonasiUangActivity extends AppCompatActivity {

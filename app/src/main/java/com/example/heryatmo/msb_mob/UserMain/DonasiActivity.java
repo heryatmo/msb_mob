@@ -1,4 +1,4 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.UserMain;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.example.heryatmo.msb_mob.model.Logistik;
+import com.example.heryatmo.msb_mob.R;
 
 public class DonasiActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.UserMain;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.adapter.PostAdapter;
 import com.example.heryatmo.msb_mob.model.Post;
 import com.example.heryatmo.msb_mob.remote.APIService;

@@ -1,4 +1,4 @@
-package com.example.heryatmo.msb_mob;
+package com.example.heryatmo.msb_mob.UserMain;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.HashMap;
+import com.example.heryatmo.msb_mob.Login.LoginActivity;
+import com.example.heryatmo.msb_mob.R;
 
 public class MainActivity extends AppCompatActivity {
 
