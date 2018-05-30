@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Donasi {
 
+    @SerializedName("id_upload")
+    private Long mIdUpload;
     @SerializedName("bukti_transfer")
     private String mBuktiTransfer;
     @SerializedName("created_at")

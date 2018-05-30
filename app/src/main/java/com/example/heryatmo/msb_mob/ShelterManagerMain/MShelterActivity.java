@@ -70,8 +70,8 @@ public class MShelterActivity extends AppCompatActivity {
 
     private void daftarMShelter(){
         DaftarPeran data = DaftarPeran.builder()
-                .mIdUser(id_user)
-                .mIdRole(id_role.getSelectedItem().toString())
+                .id_user(id_user)
+                .id_role(id_role.getSelectedItem().toString())
                 .build();
 
         Retrofit retrofit = RetroClient.getClient();

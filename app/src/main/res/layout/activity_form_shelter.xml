@@ -28,7 +28,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mapmap"
+        android:id="@+id/openmap"
+        android:onClick="goPlacePicker"
         android:text="OPEN MAP"/>
 
     <EditText

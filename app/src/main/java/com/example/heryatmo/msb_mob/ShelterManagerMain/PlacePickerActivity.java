@@ -28,7 +28,8 @@ public class PlacePickerActivity extends AppCompatActivity {
         txttai = findViewById(R.id.tvTai);
     }
 
-    public void  goPlacePicker(View view){
+    protected void  goPlacePicker(View view){
+
 
 
 
@@ -57,4 +58,5 @@ public class PlacePickerActivity extends AppCompatActivity {
         }
 
     }
+
 }
