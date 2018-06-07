@@ -8,6 +8,7 @@ import com.example.heryatmo.msb_mob.model.Post;
 import com.example.heryatmo.msb_mob.model.Upload;
 import com.example.heryatmo.msb_mob.model.User;
 import com.example.heryatmo.msb_mob.response.BencanaResponse;
+import com.example.heryatmo.msb_mob.response.DaftarCalonVolunteerResponse;
 import com.example.heryatmo.msb_mob.response.JenisResponse;
 import com.example.heryatmo.msb_mob.model.Logistik;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
@@ -103,7 +104,7 @@ public interface APIService {
     @GET("api/v1/tampilPengungsiSM/{id}")
     Call<PengungsiResponse> getPengungsiSM(@Path("id") String id);
 
-    @GET("api/v1/tampilDaftarVolunteer/{id}")
-    Call<DaftarResponse> getDaftarVolunteer(@Path("id") String id);
+    @GET("api/v1/tampilDaftarVolunteer2/{id}")
+    Call<DaftarCalonVolunteerResponse> getDaftarVolunteer(@Path("id") String id);
 
 }

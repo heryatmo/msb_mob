@@ -31,4 +31,5 @@ public class DaftarResponse {
     private String message;
     private DaftarPeran data;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
 }

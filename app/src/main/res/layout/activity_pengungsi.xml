@@ -47,7 +47,7 @@
 
 
             <EditText
-                android:id="@+id/txtNama"
+                android:id="@+id/txtNamaPengungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -67,7 +67,7 @@
                 android:background="#f9d7db"/>
 
             <EditText
-                android:id="@+id/txtTempatLahir"
+                android:id="@+id/txtTempatLahirPengungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -91,7 +91,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/txtTanggalLahir"
+                    android:id="@+id/txtTanggalLahirPengungsi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:id="@+id/btnTanggal"
-                    android:onClick="date"
+                    android:onClick="datePengungsi"
                     android:hint="Pilih Tanggal"/>
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_marginLeft="7dp"/>
                 <Spinner
-                    android:id="@+id/spjenis_kelamin"
+                    android:id="@+id/spjenis_kelaminPengungsi"
                     android:entries="@array/jenis_kelamin"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
                     android:textSize="15dp" />
 
                 <Spinner
-                    android:id="@+id/spgolongan_darah"
+                    android:id="@+id/spgolongan_darahPengungsi"
                     android:entries="@array/golongan_darah"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
@@ -201,7 +201,7 @@
 
 
             <EditText
-                android:id="@+id/txtAlamat"
+                android:id="@+id/txtAlamatPengungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -221,12 +221,12 @@
                 android:background="#f9d7db"/>
 
             <EditText
-                android:id="@+id/txtAgama"
+                android:id="@+id/txtAgamaPengungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_phone_black_18dp"
+                android:drawableLeft="@drawable/ic_account_balance_black_24dp"
                 android:drawablePadding="12dp"
                 android:ems="10"
                 android:hint="Agama"
@@ -280,12 +280,12 @@
                 android:background="#f9d7db"/>
 
             <EditText
-                android:id="@+id/txtKeterangan"
+                android:id="@+id/txtKeteranganPengungsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_phone_black_18dp"
+                android:drawableLeft="@drawable/ic_mode_edit_black_24dp"
                 android:drawablePadding="12dp"
                 android:ems="10"
                 android:hint="Keterangan"

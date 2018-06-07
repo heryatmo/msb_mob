@@ -13,7 +13,7 @@ import com.example.heryatmo.msb_mob.R;
 
 public class MainMshelterActivity extends AppCompatActivity {
 
-    LinearLayout shelter,logout;
+    LinearLayout shelter,logout,dataVol;
 
 
     @Override
@@ -21,11 +21,20 @@ public class MainMshelterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mshelter);
 
+        dataVol = findViewById(R.id.layDataVolunteer);
+        dataVol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMshelterActivity.this,DaftarVolunteerActivity.class );
+                startActivity(intent);
+            }
+        });
+
         shelter = findViewById(R.id.layShelter);
         shelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainMshelterActivity.this,ShowShelterActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,MapsActivity.class );
                 startActivity(intent);
             }
         });
