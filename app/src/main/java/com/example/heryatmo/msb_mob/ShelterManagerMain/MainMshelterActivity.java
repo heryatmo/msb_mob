@@ -34,7 +34,7 @@ public class MainMshelterActivity extends AppCompatActivity {
         shelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainMshelterActivity.this,MapsActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,FormShelterActivity.class );
                 startActivity(intent);
             }
         });

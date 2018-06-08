@@ -47,7 +47,7 @@ public class DaftarVolunteerActivity extends AppCompatActivity {
     private void recycleList(DaftarCalonVolunteerResponse daftarResponse){
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        adapter = new DaftarVolunteerAdapter(daftarResponse.getData());
+        adapter = new DaftarVolunteerAdapter(daftarResponse.getData(), this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }

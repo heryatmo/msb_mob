@@ -1,5 +1,6 @@
 package com.example.heryatmo.msb_mob.remote;
 
+import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.Donasi;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
@@ -74,9 +75,9 @@ public interface APIService {
     Call<TestResponse>
     postResponse(@Body Post post);
 
-    @POST("api/v1/terimaVolunteer/{id}")
-    Call<UserResponse>
-    terimaVolunteer(@Body User terimaVolunteer,@Path("id") String id);
+    @POST("api/v1/terimaVolunteer/{id}/{id_user}")
+    Call<DaftarPeran>
+    terimaVolunteer(@Path("id") String id, @Path("id_user") String id_user);
 
     @POST("api/v1/terimaDonasi/{id}")
     Call<DonasiResponse>
