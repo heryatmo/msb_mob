@@ -19,7 +19,7 @@ public class PosisiResponse {
     @SerializedName("codeStatus")
     private Long mCodeStatus;
     @SerializedName("data")
-    private List<Posisi> mData;
+    private Posisi mData;
     @SerializedName("isSuccess")
     private Boolean mIsSuccess;
     @SerializedName("message")

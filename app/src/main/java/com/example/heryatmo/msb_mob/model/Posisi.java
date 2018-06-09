@@ -21,7 +21,7 @@ public class Posisi {
     private Object mDeletedAt;
     @SerializedName("id_bencana")
     private String mIdBencana;
-    @SerializedName("id_posisi")
+    @SerializedName("id_shelter")
     private Long mIdShelter;
     @SerializedName("id_user")
     private String mIdUser;
@@ -29,16 +29,12 @@ public class Posisi {
     private String mNamaShelter;
     @SerializedName("status_shelter")
     private String mStatusShelter;
-    @SerializedName("id_posisi")
-    private Long mIdPosisi;
     @SerializedName("lat")
-    private String mLat;
+    private Double mLat;
     @SerializedName("lng")
-    private String mLng;
+    private Double mLng;
     @SerializedName("status_posisi")
     private String mStatusPosisi;
-    @SerializedName("title")
-    private String mTitle;
     @SerializedName("wilayah_shelter")
     private String mWilayahShelter;
     @SerializedName("updated_at")

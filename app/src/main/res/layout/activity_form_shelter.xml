@@ -20,7 +20,7 @@
         android:gravity="left"
         android:text="Pilih Bencana"/>
     <Spinner
-        android:id="@+id/id"
+        android:id="@+id/spBencana"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Volunteer"/>
@@ -33,7 +33,7 @@
         android:text="OPEN MAP"/>
 
     <EditText
-        android:id="@+id/txtEmailRegister"
+        android:id="@+id/txtNamaShelter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -52,7 +52,7 @@
         android:background="#f9d7db"/>
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtWilayahShelter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -72,12 +72,12 @@
 
 
     <Button
-        android:id="@+id/daftarPeran"
+        android:id="@+id/simpanShelter"
         android:layout_marginTop="50dp"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:text="Daftar"
+        android:text="Simpan"
         android:background="@drawable/background_signup"/>
 
 

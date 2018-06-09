@@ -60,7 +60,7 @@ public interface APIService {
 
     @POST("api/v1/createShelter")
     Call<PosisiResponse>
-    posisiRequest(@Body Posisi posisi);
+    shelterRequest(@Body Posisi posisi);
 
     @Multipart
     @POST("api/v1/uploadImage")
