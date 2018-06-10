@@ -27,5 +27,4 @@ public class ShelterResponse {
     private String mMessage;
 
 
-
 }

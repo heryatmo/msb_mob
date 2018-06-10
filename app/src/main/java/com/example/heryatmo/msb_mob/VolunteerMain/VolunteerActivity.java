@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.ShelterManagerMain.FormShelterActivity;
 import com.example.heryatmo.msb_mob.UserMain.MainActivity;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.Jenis;
@@ -24,6 +25,10 @@ import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
 import com.example.heryatmo.msb_mob.response.DaftarResponse;
 import com.example.heryatmo.msb_mob.response.ShelterResponse;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +47,7 @@ public class VolunteerActivity extends AppCompatActivity {
     Spinner id_role, sShelter;
     String id_user;
     Button bDaftar, bCek;
+    int PLACE_PICKER_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,5 +163,30 @@ public class VolunteerActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void goPickShelter(View view){
+        try {
+            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+            Intent intent = builder.build(VolunteerActivity.this);
+            startActivityForResult(intent, PLACE_PICKER_REQUEST);
+        } catch (GooglePlayServicesRepairableException e) {
+            GooglePlayServicesUtil
+                    .getErrorDialog(e.getConnectionStatusCode(), VolunteerActivity.this, 0);
+        } catch (GooglePlayServicesNotAvailableException e) {
+            Toast.makeText(VolunteerActivity.this, "Google Play Services is not available.",
+                    Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+
+            }
+        }
+
     }
 }

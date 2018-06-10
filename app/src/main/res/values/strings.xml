@@ -37,6 +37,7 @@
 
     <string name="google_maps_API_key">AIzaSyDNzfaOxZ0AyMXMzDBZuNwCDqKe1MoMEj0</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps_shelter">Map</string>
 
 </resources>
 
