@@ -17,6 +17,7 @@ import com.example.heryatmo.msb_mob.response.DonasiResponse;
 import com.example.heryatmo.msb_mob.response.LogistikResponse;
 import com.example.heryatmo.msb_mob.response.PengungsiResponse;
 import com.example.heryatmo.msb_mob.response.PosisiResponse;
+import com.example.heryatmo.msb_mob.response.TampilPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UploadResponse;
 import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.response.DaftarResponse;
@@ -103,7 +104,7 @@ public interface APIService {
     Call<ShelterResponse> getShelterSM(@Path("id") String id);
 
     @GET("api/v1/tampilPengungsiSM/{id}")
-    Call<PengungsiResponse> getPengungsiSM(@Path("id") String id);
+    Call<TampilPengungsiResponse> getPengungsiSM(@Path("id") String id);
 
     @GET("api/v1/tampilDaftarVolunteer2/{id}")
     Call<DaftarCalonVolunteerResponse> getDaftarVolunteer(@Path("id") String id);

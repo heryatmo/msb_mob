@@ -24,8 +24,6 @@ public class SemuaShelter {
     private Object mDeletedAt;
     @SerializedName("id_bencana")
     private String mIdBencana;
-    @SerializedName("id_posisi")
-    private String mIdPosisi;
     @SerializedName("id_shelter")
     private Long mIdShelter;
     @SerializedName("id_user")
@@ -34,9 +32,16 @@ public class SemuaShelter {
     private String mNamaShelter;
     @SerializedName("status_shelter")
     private String mStatusShelter;
-    @SerializedName("updated_at")
-    private String mUpdatedAt;
+    @SerializedName("lat")
+    private Double mLat;
+    @SerializedName("lng")
+    private Double mLng;
+    @SerializedName("status_posisi")
+    private String mStatusPosisi;
     @SerializedName("wilayah_shelter")
     private String mWilayahShelter;
+    @SerializedName("updated_at")
+    private String mUpdatedAt;
+
 
 }
