@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.ShelterManagerMain.FormShelterActivity;
 import com.example.heryatmo.msb_mob.UserMain.MainActivity;
+import com.example.heryatmo.msb_mob.UserMain.MapsShelterActivity;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.Jenis;
 import com.example.heryatmo.msb_mob.model.Role;
@@ -46,7 +47,7 @@ public class VolunteerActivity extends AppCompatActivity {
     List<Role> list;
     Spinner id_role, sShelter;
     String id_user;
-    Button bDaftar, bCek;
+    Button bDaftar, bPilShel;
     int PLACE_PICKER_REQUEST = 1;
 
     @Override
@@ -98,13 +99,15 @@ public class VolunteerActivity extends AppCompatActivity {
             }
         });
 
-        bCek = findViewById(R.id.btncekid);
-        bCek.setOnClickListener(new View.OnClickListener() {
+        bPilShel = findViewById(R.id.pickShelter);
+        bPilShel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Id User :" + id_user, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(VolunteerActivity.this, MapsShelterActivity.class);
+                startActivity(intent);
             }
         });
+
 
 
     }

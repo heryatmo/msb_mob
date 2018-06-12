@@ -72,6 +72,8 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
                 List<String> listSpinner = new ArrayList<String>();
                 for (int i = 0; i < semuashelter.size(); i++) {
                     listSpinner.add(semuashelter.get(i).getMNamaShelter());
+                    LatLng shelter = new LatLng(semuashelter.get(i).getMLat(), semuashelter.get(i).getMLat());
+                    mMap.addMarker(new MarkerOptions().position(shelter).title("Marker in Sydney"));
                 }
             }
 
