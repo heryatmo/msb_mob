@@ -1,6 +1,8 @@
 package com.example.heryatmo.msb_mob.VolunteerMain;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,14 +36,21 @@ public class PengungsiMainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_pengungsi_main);
 
+            recyclerView = findViewById(R.id.rv_pengungsi_list);
+
+            SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+            id_user  = sp.getString("id_user","-");
+
             btnTambahPengungsi = findViewById(R.id.btnTambahPengungsi);
             btnTambahPengungsi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(PengungsiMainActivity.this, PengungsiActivity.class);
                     startActivity(intent);
+
                 }
             });
+            loadJSON();
         }
         private void recycleList(TampilPengungsiResponse daftarPengungsi){
             recyclerView.setHasFixedSize(true);

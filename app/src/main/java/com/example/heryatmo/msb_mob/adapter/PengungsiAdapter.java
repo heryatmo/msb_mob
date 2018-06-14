@@ -3,6 +3,7 @@ package com.example.heryatmo.msb_mob.adapter;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.VolunteerMain.DetilPengungsi2Activity;
 import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
 
@@ -41,10 +43,13 @@ public class PengungsiAdapter extends RecyclerView.Adapter<PengungsiAdapter.View
     public void onBindViewHolder(final PengungsiAdapter.ViewHolder holder, final int position) {
       holder.tv_nama_pengungsi.setText(daftarPengungsi.get(position).getMNamaPengungsi());
         holder.tv_alamat_pengungsi.setText(daftarPengungsi.get(position).getMAlamatPengungsi());
-        holder.cardVol.setOnClickListener(new View.OnClickListener() {
+        holder.cardPengungsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final Pengungsi dataPengungsi = daftarPengungsi.get(position);
+                Intent intent = new Intent(context, DetilPengungsi2Activity.class);
+                intent.putExtra("Nama : ",daftarPengungsi.get(position).getMNamaPengungsi());
+                context.startActivity(intent);
             }
         });
     }
@@ -57,13 +62,13 @@ public class PengungsiAdapter extends RecyclerView.Adapter<PengungsiAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_nama_pengungsi, tv_alamat_pengungsi;
-        CardView cardVol;
+        CardView cardPengungsi;
 
         public ViewHolder(View view) {
             super(view);
             tv_nama_pengungsi = (TextView) view.findViewById(R.id.tvViewNamePengungsi);
             tv_alamat_pengungsi = (TextView) view.findViewById(R.id.tvViewAlamatPengungsi);
-            cardVol = (CardView) view.findViewById(R.id.cardVolunteer);
+            cardPengungsi = (CardView) view.findViewById(R.id.cardPengungsi);
         }
     }
 }

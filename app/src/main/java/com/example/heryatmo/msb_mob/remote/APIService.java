@@ -91,6 +91,9 @@ public interface APIService {
     @GET("api/v1/tampilPost")
     Call<TestResponse> getPost();
 
+    @GET("api/v1/tampilLogistik")
+    Call<LogistikResponse> getLogistik();
+
     @GET("api/v1/tampilShelter")
     Call<ShelterResponse> getShelter();
 

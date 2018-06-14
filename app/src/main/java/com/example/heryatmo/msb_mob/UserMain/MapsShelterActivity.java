@@ -28,6 +28,7 @@ import retrofit2.Retrofit;
 public class MapsShelterActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
     List<SemuaShelter> semuashelter = new ArrayList<>();
 
     @Override
@@ -53,12 +54,11 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMinZoomPreference(6.0f);
+        mMap.setMaxZoomPreference(14.0f);
 
         initMapShelter();
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     private void initMapShelter(){
@@ -70,10 +70,13 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
             public void onResponse(Call<ShelterResponse> call, Response<ShelterResponse> response) {
                 semuashelter = response.body().getMData();
                 List<String> listSpinner = new ArrayList<String>();
-                for (int i = 0; i < semuashelter.size(); i++) {
-                    listSpinner.add(semuashelter.get(i).getMNamaShelter());
-                    LatLng shelter = new LatLng(semuashelter.get(i).getMLat(), semuashelter.get(i).getMLat());
-                    mMap.addMarker(new MarkerOptions().position(shelter).title("Marker in Sydney"));
+                for (SemuaShelter s : semuashelter) {
+                    if (!(s.getMLng() == null || s.getMLat() == null)) { m,p
+                        listSpinner.add(s.getMNamaShelter());
+                        LatLng shelter = new LatLng(s.getMLat(), s.getMLng());
+                        mMap.addMarker(new MarkerOptions().position(shelter).title(s.getMNamaShelter()));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(shelter,10));
+                    }
                 }
             }
 

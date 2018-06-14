@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerMain.DetilPengungsi2Activity">
+
+    <TextView
+        android:id="@+id/titlePengungsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="DATA PENGUNGSI"
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/viewnama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/titlePengungsi"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="Nama Pengungsi"/>
+    <TextView
+        android:id="@+id/viewTempat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/viewnama"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="Tempat Lahir"/>
+
+    <Button
+        android:id="@+id/btnubahpengungsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:gravity="center"
+        android:text="Ubah"
+        app:layout_constraintTop_toBottomOf="@+id/viewTempat"
+        tools:layout_editor_absoluteX="63dp" />
+
+    <Button
+        android:id="@+id/btnhapuspengungsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:gravity="center"
+        android:text="Hapus"
+        app:layout_constraintTop_toBottomOf="@+id/viewTempat"
+        tools:layout_editor_absoluteX="206dp" />
+
+</android.support.constraint.ConstraintLayout>

@@ -80,7 +80,8 @@
         <activity android:name=".ShelterManagerMain.DaftarVolunteerActivity" />
         <activity
             android:name=".UserMain.MapsShelterActivity"
-            android:label="@string/title_activity_maps_shelter"></activity>
+            android:label="@string/title_activity_maps_shelter" />
+        <activity android:name=".VolunteerMain.DetilPengungsi2Activity"></activity>
     </application>
 
 </manifest>

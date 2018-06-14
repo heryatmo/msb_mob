@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvNamaGunung"-->
+            <!--android:text="Nama Gunung"-->
+            <!--android:textSize="30dp"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="20dp"/>-->
+
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvJalurPendakian"-->
+            <!--android:text="Jalur Pendakian"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Tanggal SPK"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="35dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvTanggalSPK"-->
+            <!--android:text="Tanggal SPK"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Nilai Ketinggian Gunung"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvnilaiKetinggian"-->
+            <!--android:text="Nilai Ketinggian Gunung"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Mata Air"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvNilaiMataAir"-->
+            <!--android:text="Nilai Mata Air"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Nilai Jumlah Pos"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvNilaiJumlahPos"-->
+            <!--android:text="Nilai Jumlah Pos"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Nilai Waktu Mendaki"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvNilaiWaktuMendaki"-->
+            <!--android:text="Nilai Waktu Mendaki"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Tingkat Kesulitan"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/tvNilaiTingkatKesulitan"-->
+            <!--android:text="Nilai Tingkat Kesulitan"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/asbestos"-->
+            <!--android:layout_gravity="center"/>-->
+
+        <!--<com.rilixtech.materialfancybutton.MaterialFancyButton-->
+            <!--android:id="@+id/btnMenu"-->
+            <!--android:layout_width="180dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--fancy:mfb_borderColor="@color/white"-->
+            <!--fancy:mfb_borderWidth="2dp"-->
+            <!--fancy:mfb_defaultColor="@color/turquoise"-->
+            <!--fancy:mfb_focusColor="@color/turquoise"-->
+            <!--fancy:mfb_radius="30dp"-->
+            <!--fancy:mfb_text="Menu Utama"-->
+            <!--fancy:mfb_textColor="@color/black"/>-->
+    <!--</LinearLayout>-->
+
+</android.support.constraint.ConstraintLayout>
