@@ -77,18 +77,21 @@ public class LoginActivity extends AppCompatActivity {
                         UserResponse user = response.body();
                         if (user.getMData().getMIdRole().toString().equalsIgnoreCase("3")) {
                             savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            saveUser(user);
                             Intent intent = new Intent(getApplicationContext(), VolunteerMainActivity.class);
                             startActivity(intent);
 
                             finish();
                         } else if (user.getMData().getMIdRole().toString().equalsIgnoreCase("4")) {
                             savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            saveUser(user);
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
 
                             finish();
                         } else if (user.getMData().getMIdRole().toString().equalsIgnoreCase("2")) {
                             savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
+                            saveUser(user);
                             Intent intent = new Intent(getApplicationContext(), MainMshelterActivity.class);
                             startActivity(intent);
 
@@ -138,5 +141,21 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    private  void saveUser(UserResponse user){
+        SharedPreferences sp = getSharedPreferences("SPUser", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("nama",user.getMData().getMNama());
+        editor.putString("nama_role",user.getMData().getMRole().getMNamaRole());
 
+        editor.putString("jenis_kelamin", user.getMData().getMJenisKelamin());
+        editor.putString("golongan_darah", user.getMData().getMGolonganDarah());
+
+        editor.putString("tempat_lahir", user.getMData().getMTempatLahir());
+        editor.putString("tanggal_lahir", user.getMData().getMTanggalLahir());
+
+        editor.putString("alamat", user.getMData().getMAlamat());
+        editor.putString("email", user.getMData().getMEmail());
+        editor.putString("no_hp", user.getMData().getMNoHp());
+        editor.commit();
+    }
 }

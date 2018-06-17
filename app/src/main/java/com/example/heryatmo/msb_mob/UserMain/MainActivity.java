@@ -14,7 +14,7 @@ import com.example.heryatmo.msb_mob.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout lydaftar,lyinfo,lydonasi,lylogout;
+    LinearLayout lydaftar,lyinfo,lydonasi,lyprofile;
 
 
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         lydaftar = findViewById(R.id.layDaftar);
         lyinfo = findViewById(R.id.layInformasi);
         lydonasi = findViewById(R.id.layDonasi);
-        lylogout = findViewById(R.id.layLogout);
+        lyprofile = findViewById(R.id.layProfile);
         final TextView tvTest = findViewById(R.id.tvTest);
 
         lydaftar.setOnClickListener(new View.OnClickListener() {
@@ -54,18 +54,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        lylogout.setOnClickListener(new View.OnClickListener() {
+        lyprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("email","-");
-                editor.putString("password","-");
-                editor.putString("id_role", "-");
-                editor.commit();
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class );
+                Intent intent = new Intent(MainActivity.this,ProfileActivity.class );
                 startActivity(intent);
-                finish();
             }
         });
     }

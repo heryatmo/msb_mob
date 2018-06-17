@@ -13,45 +13,53 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @SuppressWarnings("unused")
 public class User {
+    @SerializedName("nama")
+    private String mNama;
+    @SerializedName("role")
+    private Role mRole;
+
+    @SerializedName("jenis_kelamin")
+    private String mJenisKelamin;
+    @SerializedName("golongan_darah")
+    private String mGolonganDarah;
+
+    @SerializedName("tempat_lahir")
+    private String mTempatLahir;
+    @SerializedName("tanggal_lahir")
+    private String mTanggalLahir;
+
 
     @SerializedName("alamat")
     private String mAlamat;
-    @SerializedName("codeStatus")
-    private Long mCodeStatus;
-    @SerializedName("created_at")
-    private String mCreatedAt;
-    @SerializedName("deleted_at")
-    private Object mDeletedAt;
     @SerializedName("email")
     private String mEmail;
-    @SerializedName("golongan_darah")
-    private String mGolonganDarah;
-    @SerializedName("id_role")
-    private String mIdRole;
-    @SerializedName("id_user")
-    private Long mIdUser;
-    @SerializedName("isSuccess")
-    private Boolean mIsSuccess;
-    @SerializedName("jenis_kelamin")
-    private String mJenisKelamin;
-    @SerializedName("message")
-    private String mMessage;
-    @SerializedName("nama")
-    private String mNama;
     @SerializedName("no_hp")
     private String mNoHp;
-    @SerializedName("role")
-    private Role mRole;
+
     @SerializedName("status_user")
     private String mStatusUser;
-    @SerializedName("tanggal_lahir")
-    private String mTanggalLahir;
-    @SerializedName("tempat_lahir")
-    private String mTempatLahir;
-    @SerializedName("updated_at")
-    private String mUpdatedAt;
+
+
+    @SerializedName("id_user")
+    private Long mIdUser;
+    @SerializedName("id_role")
+    private String mIdRole;
     @SerializedName("user")
     private User mUser;
+
+    @SerializedName("isSuccess")
+    private Boolean mIsSuccess;
+    @SerializedName("codeStatus")
+    private Long mCodeStatus;
+    @SerializedName("message")
+    private String mMessage;
+
+    @SerializedName("created_at")
+    private String mCreatedAt;
+    @SerializedName("updated_at")
+    private String mUpdatedAt;
+    @SerializedName("deleted_at")
+    private Object mDeletedAt;
 
 
 }
