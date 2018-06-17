@@ -54,8 +54,7 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMinZoomPreference(6.0f);
-        mMap.setMaxZoomPreference(14.0f);
+
 
         initMapShelter();
         // Add a marker in Sydney and move the camera
@@ -71,7 +70,7 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
                 semuashelter = response.body().getMData();
                 List<String> listSpinner = new ArrayList<String>();
                 for (SemuaShelter s : semuashelter) {
-                    if (!(s.getMLng() == null || s.getMLat() == null)) { m,p
+                    if (!(s.getMLng() == null || s.getMLat() == null)) {
                         listSpinner.add(s.getMNamaShelter());
                         LatLng shelter = new LatLng(s.getMLat(), s.getMLng());
                         mMap.addMarker(new MarkerOptions().position(shelter).title(s.getMNamaShelter()));
