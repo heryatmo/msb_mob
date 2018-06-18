@@ -208,7 +208,7 @@
                         android:layout_height="25dp"
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_phone_421C52_24dp" />
+                        android:src="@drawable/ic_phone_421c52_24dp" />
                     <TextView
                         android:id="@+id/tvNoHP"
                         android:layout_width="match_parent"
