@@ -13,7 +13,7 @@ import com.example.heryatmo.msb_mob.R;
 
 public class VolunteerMainActivity extends AppCompatActivity {
 
-    LinearLayout layPengungsi,logout;
+    LinearLayout layPengungsi,logout,layLogistik;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,15 @@ public class VolunteerMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(VolunteerMainActivity.this,LoginActivity.class );
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        layLogistik = findViewById(R.id.layDisLogistik);
+        layLogistik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VolunteerMainActivity.this,TampilLogistikActivity.class );
+                startActivity(intent);
             }
         });
     }

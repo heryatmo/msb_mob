@@ -3,6 +3,8 @@ package com.example.heryatmo.msb_mob.response;
 import com.example.heryatmo.msb_mob.model.Logistik;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ public class TampilLogistikResponse {
     @SerializedName("codeStatus")
     private Long mCodeStatus;
     @SerializedName("data")
-    private Logistik mData;
+    private List<Logistik> mData;
     @SerializedName("isSuccess")
     private Boolean mIsSuccess;
     @SerializedName("message")

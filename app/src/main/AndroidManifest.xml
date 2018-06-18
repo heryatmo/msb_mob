@@ -82,7 +82,8 @@
             android:name=".UserMain.MapsShelterActivity"
             android:label="@string/title_activity_maps_shelter" />
         <activity android:name=".VolunteerMain.DetilPengungsi2Activity" />
-        <activity android:name=".UserMain.ProfileActivity"></activity>
+        <activity android:name=".UserMain.ProfileActivity" />
+        <activity android:name=".VolunteerMain.TampilLogistikActivity"></activity>
     </application>
 
 </manifest>
