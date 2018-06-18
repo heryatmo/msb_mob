@@ -24,10 +24,11 @@ public class ProfileActivity extends AppCompatActivity {
     TextView tvAlamat, tvEmail, tvNoHP;
 
     //User
-    String nama="", nama_role="";
+    String id_user="", nama_user="", id_role="", nama_role="";
     String jenis_kelamin="", golongan_darah="";
     String tempat_lahir="", tanggal_lahir="";
     String alamat="", email="", no_hp="";
+    String id_shelter="", nama_shelter="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void loadUser(){
         SharedPreferences sp = getSharedPreferences("SPUser", Context.MODE_PRIVATE);
-        this.nama = sp.getString("nama","-");
+        this.id_user = sp.getString("id_user","-");
+        this.nama_user = sp.getString("nama_user","-");
+        this.id_role = sp.getString("id_role","-");
         this.nama_role = sp.getString("nama_role","-");
 
         this.jenis_kelamin = sp.getString("jenis_kelamin","-");
@@ -76,6 +79,9 @@ public class ProfileActivity extends AppCompatActivity {
         this.alamat = sp.getString("alamat","-");
         this.email = sp.getString("email","-");
         this.no_hp = sp.getString("tanggal_lahir","-");
+
+        this.id_shelter = sp.getString("id_shelter","-");
+        this.nama_shelter = sp.getString("nama_shelter","-");
     }
 
     private void setProfile(){
@@ -93,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tvEmail);
         tvNoHP = findViewById(R.id.tvNoHP);
 
-        tvNama.setText(nama);
+        tvNama.setText(nama_user);
         tvNamaRole.setText(nama_role);
 
         tvTempatTanggalLahir.setText(tempat_lahir + ", " + tanggal_lahir);

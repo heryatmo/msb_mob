@@ -13,12 +13,14 @@ import lombok.NoArgsConstructor;
 public class Logistik {
     @SerializedName("id_user")
     private String mIdUser;
+    @SerializedName("id_logistik")
+    private String mIdLogistik;
+    @SerializedName("nama_logistik")
+    private String mNamaLogistik;
     @SerializedName("jumlah_logistik")
     private String mJumlahLogistik;
     @SerializedName("keterangan")
     private String mKeterangan;
-    @SerializedName("nama_logistik")
-    private String mNamaLogistik;
     @SerializedName("status_logistik")
     private String mStatusLogistik;
 

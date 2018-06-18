@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerMain.DistribusiLogistikActivity"
+    android:background="@color/colorMint"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="48dp"
+                android:padding="16dp"
+                android:src="@drawable/msblogo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="30dp"
+                android:text="Distribusi Logistik"
+                android:textAlignment="center"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="5dp"
+                android:text="Data Logistik"
+                android:textAlignment="center"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:background="@color/colorAccent"/>
+
+            <TextView
+                android:id="@+id/txtNamaLogistik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_info_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Nama Logistik"
+                android:text="Indomie Rebus (5)"
+                android:padding="8dp"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db"/>
+
+            <TextView
+                android:id="@+id/txtKeteranganLogistik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_questionmark_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Keterangan Logistik"
+                android:text="Indomie rasa ayam bawang dengan rasa menggoda"
+                android:padding="8dp"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="5dp"
+                android:text="Data Distribusi"
+                android:textAlignment="center"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:background="@color/colorAccent"/>
+
+            <TextView
+                android:id="@+id/txtNamaShelter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_info_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Nama Shelter"
+                android:text="Shelter Sejahtera"
+                android:padding="8dp"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db"/>
+
+            <TextView
+                android:id="@+id/txtNamaUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_account_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Nama User"
+                android:text="Heryatmo"
+                android:padding="8dp"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db"/>
+
+            <EditText
+                android:id="@+id/txtJumlahDistribusi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_sum_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Jumlah Distribusi"
+                android:padding="8dp"
+                android:text="1"
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"
+                android:inputType="number"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f9d7db"/>
+
+            <EditText
+                android:id="@+id/txtKeteranganDistribusi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_questionmark_white_24dp"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="* Keterangan Distribusi"
+                android:padding="8dp"
+                android:text=""
+                android:textColorHint="@color/colorGrapeFruitDark"
+                android:textColor="#222"
+                android:textSize="18dp"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+
+            <Button
+                android:id="@+id/btnSubmitDistribusi"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_login"
+                android:clickable="true"
+                android:padding="16dp"
+                android:text="Distribusi" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

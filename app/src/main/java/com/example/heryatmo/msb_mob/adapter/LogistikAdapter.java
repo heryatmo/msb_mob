@@ -1,6 +1,7 @@
 package com.example.heryatmo.msb_mob.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,8 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.VolunteerMain.DetilPengungsi2Activity;
+import com.example.heryatmo.msb_mob.VolunteerMain.DistribusiLogistikActivity;
+import com.example.heryatmo.msb_mob.model.DistribusiLogistik;
 import com.example.heryatmo.msb_mob.model.Logistik;
+import com.example.heryatmo.msb_mob.model.Pengungsi;
 
 import java.util.List;
 
@@ -38,10 +44,13 @@ public class LogistikAdapter extends RecyclerView.Adapter<LogistikAdapter.ViewHo
         holder.cardLogistik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                final Logistik dataPengungsi = daftarPengungsi.get(position);
-//                Intent intent = new Intent(context, DetilPengungsi2Activity.class);
-//                intent.putExtra("Nama : ",daftarPengungsi.get(position).getMNamaPengungsi());
-//                context.startActivity(intent);
+                final Logistik dataLogistik = daftarLogistik.get(position);
+                Intent intent = new Intent(context, DistribusiLogistikActivity.class);
+                intent.putExtra("id_logistik",""+daftarLogistik.get(position).getMIdLogistik());
+                intent.putExtra("nama_logistik",""+daftarLogistik.get(position).getMNamaLogistik());
+                intent.putExtra("jumlah_logistik",""+daftarLogistik.get(position).getMJumlahLogistik());
+                intent.putExtra("keterangan_logistik",""+daftarLogistik.get(position).getMKeterangan());
+                context.startActivity(intent);
             }
         });
     }

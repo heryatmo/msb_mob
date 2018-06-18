@@ -144,7 +144,9 @@ public class LoginActivity extends AppCompatActivity {
     private  void saveUser(UserResponse user){
         SharedPreferences sp = getSharedPreferences("SPUser", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString("nama",user.getMData().getMNama());
+        editor.putString("id_user",user.getMData().getMIdUser()+"");
+        editor.putString("nama_user",user.getMData().getMNama());
+        editor.putString("id_role",user.getMData().getMIdRole()+"");
         editor.putString("nama_role",user.getMData().getMRole().getMNamaRole());
 
         editor.putString("jenis_kelamin", user.getMData().getMJenisKelamin());
@@ -156,6 +158,9 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("alamat", user.getMData().getMAlamat());
         editor.putString("email", user.getMData().getMEmail());
         editor.putString("no_hp", user.getMData().getMNoHp());
+
+        editor.putString("id_shelter", "1");
+        editor.putString("nama_shelter", "1");
         editor.commit();
     }
 }
