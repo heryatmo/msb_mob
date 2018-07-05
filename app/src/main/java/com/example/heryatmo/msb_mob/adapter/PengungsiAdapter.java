@@ -48,7 +48,16 @@ public class PengungsiAdapter extends RecyclerView.Adapter<PengungsiAdapter.View
             public void onClick(View view) {
                 final Pengungsi dataPengungsi = daftarPengungsi.get(position);
                 Intent intent = new Intent(context, DetilPengungsi2Activity.class);
-                intent.putExtra("Nama : ",daftarPengungsi.get(position).getMNamaPengungsi());
+                intent.putExtra("id_shelter",""+daftarPengungsi.get(position).getMIdShelter());
+                intent.putExtra("nama_pengungsi",""+daftarPengungsi.get(position).getMNamaPengungsi());
+                intent.putExtra("tempat_lahir_pengungsi",""+daftarPengungsi.get(position).getMTempatLahirPengungsi());
+                intent.putExtra("tanggal_lahir_pengungsi",""+daftarPengungsi.get(position).getMTanggalLahirPengungsi());
+                intent.putExtra("jenis_kelamin_pengungsi",""+daftarPengungsi.get(position).getMJenisKelaminPengungsi());
+                intent.putExtra("golongan_darah_pengungsi",""+daftarPengungsi.get(position).getMGolonganDarahPengungsi());
+                intent.putExtra("alamat_pengungsi",""+daftarPengungsi.get(position).getMAlamatPengungsi());
+                intent.putExtra("agama_pengungsi",""+daftarPengungsi.get(position).getMAgamaPengungsi());
+                intent.putExtra("status_pengungsi",""+daftarPengungsi.get(position).getMStatusPengungsi());
+                intent.putExtra("keterangan",""+daftarPengungsi.get(position).getMKeterangan());
                 context.startActivity(intent);
             }
         });
