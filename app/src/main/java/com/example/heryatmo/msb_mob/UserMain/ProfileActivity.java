@@ -13,6 +13,7 @@ import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.ShelterManagerMain.MainMshelterActivity;
 import com.example.heryatmo.msb_mob.VolunteerMain.VolunteerMainActivity;
+import com.example.heryatmo.msb_mob.model.UbahPassword;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -41,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         lyGantiPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, LogistikActivity.class );
+                Intent intent = new Intent(ProfileActivity.this, UbahPassword.class );
                 startActivity(intent);
             }
         });

@@ -108,8 +108,6 @@ public class VolunteerActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void initSpinnerShelter() {

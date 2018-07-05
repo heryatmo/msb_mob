@@ -173,7 +173,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/logoutMShelter"
+                    android:id="@+id/layProfileMShelter"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
@@ -185,14 +185,14 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_subdirectory_arrow_right_24dp"/>
+                        android:src="@drawable/ic_account_white_24dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="8dp"
                         android:layout_marginTop="20dp"
                         android:background="@color/colorLavanderDark"
-                        android:text="Log Out"
+                        android:text="Profil"
                         android:textSize="17dp"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"/>

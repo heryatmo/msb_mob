@@ -7,7 +7,7 @@
     tools:context=".Login.SignUpActivity"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
-    android:background="@drawable/blurback">
+    android:background="@drawable/hahamsb">
 
     <ScrollView
         android:layout_width="match_parent"

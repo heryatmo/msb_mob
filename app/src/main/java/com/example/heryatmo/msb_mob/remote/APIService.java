@@ -4,9 +4,11 @@ import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.DistribusiLogistik;
 import com.example.heryatmo.msb_mob.model.Donasi;
+import com.example.heryatmo.msb_mob.model.LupaPassword;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
 import com.example.heryatmo.msb_mob.model.Posisi;
 import com.example.heryatmo.msb_mob.model.Post;
+import com.example.heryatmo.msb_mob.model.UbahPassword;
 import com.example.heryatmo.msb_mob.model.Upload;
 import com.example.heryatmo.msb_mob.model.User;
 import com.example.heryatmo.msb_mob.response.BencanaResponse;
@@ -17,10 +19,12 @@ import com.example.heryatmo.msb_mob.model.Logistik;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
 import com.example.heryatmo.msb_mob.response.DonasiResponse;
 import com.example.heryatmo.msb_mob.response.LogistikResponse;
+import com.example.heryatmo.msb_mob.response.LupaPasswordResponse;
 import com.example.heryatmo.msb_mob.response.PengungsiResponse;
 import com.example.heryatmo.msb_mob.response.PosisiResponse;
 import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
 import com.example.heryatmo.msb_mob.response.TampilPengungsiResponse;
+import com.example.heryatmo.msb_mob.response.UbahPasswordResponse;
 import com.example.heryatmo.msb_mob.response.UploadResponse;
 import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.response.DaftarResponse;
@@ -86,6 +90,14 @@ public interface APIService {
     @POST("api/v1/distribusiLogistik")
     Call<DistribusiLogistikResponse>
     requestDistribusiLogistik(@Body DistribusiLogistik distribusiLogistik );
+
+    @POST("api/v1/gantiPass/{id}")
+    Call<UbahPasswordResponse>
+    ubahPassword(@Body UbahPassword ubahPassword, @Path("id") String id);
+
+    @POST("api/v1/lupaPass")
+    Call<LupaPasswordResponse>
+    lupaPassword( @Body LupaPassword lupaPassword);
 
 
 

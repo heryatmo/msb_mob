@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.UserMain.MainActivity;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnSignup;
     EditText edemail;
     EditText edpassword;
+    TextView edlupapass;
 
 
 
@@ -40,6 +42,15 @@ public class LoginActivity extends AppCompatActivity {
         edpassword = findViewById(R.id.txtPassword);
         btnLogin =  findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignUp);
+        edlupapass = findViewById(R.id.txtlupapass);
+
+        edlupapass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,LupaPassActivity.class );
+                startActivity(intent);
+            }
+        });
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +108,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             finish();
                         }
-
-
 
                     } else {
                         Log.i("Failed", "Login Gagal");

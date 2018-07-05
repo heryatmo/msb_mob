@@ -10,10 +10,12 @@ import android.widget.LinearLayout;
 
 import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.UserMain.ProfileActivity;
+import com.example.heryatmo.msb_mob.VolunteerMain.VolunteerMainActivity;
 
 public class MainMshelterActivity extends AppCompatActivity {
 
-    LinearLayout shelter,logout,dataVol;
+    LinearLayout shelter,profileMShelter,dataVol;
 
 
     @Override
@@ -38,19 +40,12 @@ public class MainMshelterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        logout = findViewById(R.id.logoutMShelter);
-        logout.setOnClickListener(new View.OnClickListener() {
+        profileMShelter = findViewById(R.id.layProfileMShelter);
+        profileMShelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("email","-");
-                editor.putString("password","-");
-                editor.putString("id_role", "-");
-                editor.commit();
-                Intent intent = new Intent(MainMshelterActivity.this,LoginActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,ProfileActivity.class );
                 startActivity(intent);
-                finish();
             }
         });
     }

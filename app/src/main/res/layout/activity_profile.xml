@@ -82,7 +82,7 @@
                         android:layout_height="25dp"
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_sex_female_24dp" />
+                        android:src="@drawable/ic_sex_a9a9a9_24dp" />
                     <TextView
                         android:id="@+id/tvJenisKelamin"
                         android:layout_width="match_parent"

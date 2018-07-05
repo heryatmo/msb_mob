@@ -7,7 +7,7 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     tools:context=".VolunteerMain.PengungsiActivity"
-    android:background="@color/colorMint">
+    android:background="@drawable/hahamsb">
 
     <ScrollView
         android:layout_width="match_parent"

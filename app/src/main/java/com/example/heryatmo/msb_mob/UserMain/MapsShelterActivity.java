@@ -1,20 +1,32 @@
 package com.example.heryatmo.msb_mob.UserMain;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.model.CalonVolunteer;
+import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.SemuaShelter;
 import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
+import com.example.heryatmo.msb_mob.response.DaftarResponse;
 import com.example.heryatmo.msb_mob.response.ShelterResponse;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -28,6 +40,10 @@ import retrofit2.Retrofit;
 public class MapsShelterActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    Context context;
+    private ProgressDialog progressDialog;
+    private List<SemuaShelter> daftarShelter;
+    String id_user;
 
     List<SemuaShelter> semuashelter = new ArrayList<>();
 
@@ -39,6 +55,9 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
+        id_user = sp.getString("id_user", "-");
     }
 
 
@@ -74,6 +93,27 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
                         listSpinner.add(s.getMNamaShelter());
                         LatLng shelter = new LatLng(s.getMLat(), s.getMLng());
                         mMap.addMarker(new MarkerOptions().position(shelter).title(s.getMNamaShelter()));
+                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                            @Override
+                            public boolean onMarkerClick(Marker marker) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("Daftar Pada Shelter ini ?")
+                                        .setPositiveButton("Daftar", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
+                                                showProgressDialog();
+                                            }
+                                        })
+                                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                Toast.makeText(context, "Terima Kasih", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+                                builder.create().show();
+                                return false;
+                            }
+                        });
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(shelter,10));
                     }
                 }
@@ -82,8 +122,43 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
             @Override
             public void onFailure(Call<ShelterResponse> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
+
             }
         });
 
+    }
+
+    private void daftarPeran() {
+//        String idShelter = String.valueOf(daftarShelter.get(s.getSelectedItemPosition()).getMIdShelter());
+        DaftarPeran data = DaftarPeran.builder()
+//                .id_shelter(idShelter)
+                .id_user(id_user)
+                .id_role("3")
+                .build();
+
+        Retrofit retrofit = RetroClient.getClient();
+        Call<DaftarResponse> call = retrofit.create(APIService.class).daftarPeranRequest(data, id_user);
+        call.enqueue(new Callback<DaftarResponse>() {
+            @Override
+            public void onResponse(Call<DaftarResponse> call, @NonNull Response<DaftarResponse> response) {
+                Log.d("wewwew", response.body().getMessage());
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<DaftarResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Koneksi internet bermasalah", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void showProgressDialog() {
+        this.progressDialog = ProgressDialog.show(context, "Mohon Tunggu", ".....", true);
+        //you usually don't want the user to stop the current process, and this will make sure of that
+        progressDialog.setCancelable(false);
+        progressDialog.show();
     }
 }

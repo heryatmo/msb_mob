@@ -59,7 +59,7 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
                 final CalonVolunteer calonVolunteer = daftarVolunteer.get(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage(
-                        "Nama : " + calonVolunteer.getMNama() + "\n" +
+                                "Nama : " + calonVolunteer.getMNama() + "\n" +
                                 "Tempat/Tanggal Lahir : " + calonVolunteer.getMTempatLahir() + "/" + calonVolunteer.getMTanggalLahir() + "\n" +
                                 "Jenis Kelamin : " + calonVolunteer.getMJenisKelamin() + "\n" +
                                 "Alamat : " + calonVolunteer.getMAlamat() + "\n" +
@@ -76,7 +76,7 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
                         })
                         .setNegativeButton("Tolak", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(context, "Mampus", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Ditolak", Toast.LENGTH_SHORT).show();
                             }
                         });
 

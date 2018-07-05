@@ -10,10 +10,11 @@ import android.widget.LinearLayout;
 
 import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.UserMain.ProfileActivity;
 
 public class VolunteerMainActivity extends AppCompatActivity {
 
-    LinearLayout layPengungsi,logout,layLogistik;
+    LinearLayout layPengungsi,profilVolunteer,layLogistik;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +30,12 @@ public class VolunteerMainActivity extends AppCompatActivity {
             }
         });
 
-        logout = findViewById(R.id.logoutVolunteer);
-        logout.setOnClickListener(new View.OnClickListener() {
+        profilVolunteer = findViewById(R.id.layProfileVolunteer);
+        profilVolunteer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("email","-");
-                editor.putString("password","-");
-                editor.putString("id_role", "-");
-                editor.commit();
-                Intent intent = new Intent(VolunteerMainActivity.this,LoginActivity.class );
+                Intent intent = new Intent(VolunteerMainActivity.this,ProfileActivity.class );
                 startActivity(intent);
-                finish();
             }
         });
 

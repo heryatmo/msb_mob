@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background=" #93E2D5"
-    tools:context=".UserMain.LogistikActivity">
+    tools:context=".Login.LupaPassActivity">
 
     <ImageView
         android:layout_width="200dp"
@@ -19,20 +19,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Form Logistik"
+        android:text="Lupa Password"
         android:textAlignment="center"
         android:textSize="30dp" />
 
     <EditText
         android:layout_marginTop="10dp"
-        android:id="@+id/txtNamaLog"
+        android:id="@+id/txtEmailPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Nama Logistik"
+        android:hint="Masukkan email anda......."
         android:inputType="text"
         android:maxLines="1"
         android:padding="8dp"
@@ -43,54 +43,15 @@
         android:layout_height="1dp"
         android:background="#f9d7db"/>
 
-    <EditText
-        android:id="@+id/txtJumlahLog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Jumlah Logistik"
-        android:inputType="number"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColorHint="#fff" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"/>
-
-    <EditText
-        android:id="@+id/txtKeteranganLog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Keterangan Logistik"
-        android:inputType="text"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColorHint="#fff" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"/>
 
     <Button
-        android:id="@+id/btnSubmitLog"
+        android:id="@+id/btnLupaPass"
         android:layout_marginTop="30dp"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/background_login"
         android:text="Simpan"/>
-
-
 
 
 </LinearLayout>

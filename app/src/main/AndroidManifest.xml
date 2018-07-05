@@ -84,7 +84,9 @@
         <activity android:name=".VolunteerMain.DetilPengungsi2Activity" />
         <activity android:name=".UserMain.ProfileActivity" />
         <activity android:name=".VolunteerMain.TampilLogistikActivity" />
-        <activity android:name=".VolunteerMain.DistribusiLogistikActivity"></activity>
+        <activity android:name=".VolunteerMain.DistribusiLogistikActivity" />
+        <activity android:name=".Login.GantiPasswordActivity" />
+        <activity android:name=".Login.LupaPassActivity"></activity>
     </application>
 
 </manifest>
