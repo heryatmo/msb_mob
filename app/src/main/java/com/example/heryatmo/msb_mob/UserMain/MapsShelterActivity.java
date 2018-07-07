@@ -96,22 +96,54 @@ public class MapsShelterActivity extends FragmentActivity implements OnMapReadyC
                         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                             @Override
                             public boolean onMarkerClick(Marker marker) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                builder.setTitle("Daftar Pada Shelter ini ?")
-                                        .setPositiveButton("Daftar", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
-                                                showProgressDialog();
-                                            }
-                                        })
-                                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                Toast.makeText(context, "Terima Kasih", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MapsShelterActivity.this);
+                                //searching marker id in locationDetailses and getting all the information of a particular marker
+//                                for (int i = 0; i<locationDetailses.size(); i++) {
+//                                    //matching id so, alert dialog can show specific data
+//                                    if (marker.getId().equals(locationDetailses.get(i).getMarkerID())){
+//                                        builder.setTitle("City: "+locationDetailses.get(i).getCity());
+//                                        builder.setMessage("Wind Speed: "+locationDetailses.get(i).getSpeed()+"\n"+"Degree: "+locationDetailses.get(i).getDeg()+"\n"+"We can plant WindMill here");
+//                                    }
+//
+//
+//                                }
 
-                                builder.create().show();
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // User clicked OK button
+                                    }
+                                });
+                                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // User cancelled the dialog
+                                    }
+                                });
+
+                                // Create the AlertDialog
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+
+                                // Add the button
+
                                 return false;
+//                                Toast.makeText(MapsShelterActivity.this, "Hallo?"+marker, Toast.LENGTH_SHORT).show();
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                                builder.setTitle("Daftar Pada Shelter ini ?")
+//                                        .setPositiveButton("Daftar", new DialogInterface.OnClickListener() {
+//                                            public void onClick(DialogInterface dialog, int id) {
+//                                                Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
+//                                                showProgressDialog();
+//                                            }
+//                                        })
+//                                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+//                                            public void onClick(DialogInterface dialog, int id) {
+//                                                Toast.makeText(context, "Terima Kasih", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//
+//                                builder.create().show();
+//                                return false;
                             }
                         });
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(shelter,10));

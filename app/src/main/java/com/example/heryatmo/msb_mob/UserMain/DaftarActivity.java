@@ -52,7 +52,7 @@ public class DaftarActivity extends AppCompatActivity {
         layVolu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DaftarActivity.this,VolunteerActivity.class );
+                Intent intent = new Intent(DaftarActivity.this,MapsShelterActivity.class );
                 startActivity(intent);
             }
         });

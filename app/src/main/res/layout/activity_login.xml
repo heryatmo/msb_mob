@@ -11,7 +11,6 @@
     android:orientation="vertical">
 
 
-
             <ImageView
                 android:layout_width="272dp"
                 android:layout_height="181dp"
@@ -87,7 +86,4 @@
                 android:padding="16dp"
                 android:text="SignUp"
                 android:textColor="#FFFFFF"/>
-
-
-
 </LinearLayout>
