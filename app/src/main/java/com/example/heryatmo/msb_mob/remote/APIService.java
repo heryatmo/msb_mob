@@ -4,6 +4,7 @@ import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.DistribusiLogistik;
 import com.example.heryatmo.msb_mob.model.Donasi;
+import com.example.heryatmo.msb_mob.model.HapusPengungsi;
 import com.example.heryatmo.msb_mob.model.LupaPassword;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
 import com.example.heryatmo.msb_mob.model.Posisi;
@@ -14,6 +15,7 @@ import com.example.heryatmo.msb_mob.model.User;
 import com.example.heryatmo.msb_mob.response.BencanaResponse;
 import com.example.heryatmo.msb_mob.response.DaftarCalonVolunteerResponse;
 import com.example.heryatmo.msb_mob.response.DistribusiLogistikResponse;
+import com.example.heryatmo.msb_mob.response.HapusPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.JenisResponse;
 import com.example.heryatmo.msb_mob.model.Logistik;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
@@ -98,6 +100,11 @@ public interface APIService {
     @POST("api/v1/lupaPass")
     Call<LupaPasswordResponse>
     lupaPassword( @Body LupaPassword lupaPassword);
+
+    @POST("api/v1/hapusPengungsi/{id}")
+    Call<HapusPengungsiResponse>
+    deletePengungsi( @Path("id") String id);
+
 
 
 

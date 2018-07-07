@@ -49,6 +49,7 @@ public class PengungsiAdapter extends RecyclerView.Adapter<PengungsiAdapter.View
                 final Pengungsi dataPengungsi = daftarPengungsi.get(position);
                 Intent intent = new Intent(context, DetilPengungsi2Activity.class);
                 intent.putExtra("id_shelter",""+daftarPengungsi.get(position).getMIdShelter());
+                intent.putExtra("id_pengungsi",""+daftarPengungsi.get(position).getMIdPengungsi());
                 intent.putExtra("nama_pengungsi",""+daftarPengungsi.get(position).getMNamaPengungsi());
                 intent.putExtra("tempat_lahir_pengungsi",""+daftarPengungsi.get(position).getMTempatLahirPengungsi());
                 intent.putExtra("tanggal_lahir_pengungsi",""+daftarPengungsi.get(position).getMTanggalLahirPengungsi());

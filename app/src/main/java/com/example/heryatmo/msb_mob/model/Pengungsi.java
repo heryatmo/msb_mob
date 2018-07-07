@@ -20,6 +20,8 @@ public class Pengungsi {
     private String mGolonganDarahPengungsi;
     @SerializedName("id_shelter")
     private String mIdShelter;
+    @SerializedName("id_pengungsi")
+    private String mIdPengungsi;
     @SerializedName("jenis_kelamin_pengungsi")
     private String mJenisKelaminPengungsi;
     @SerializedName("keterangan")

@@ -280,7 +280,7 @@
                             android:layout_gravity="center"
                             android:src="@drawable/ic_password_white_24dp" />
                         <TextView
-                            android:id="@+id/tvGantiPassword"
+                            android:id="@+id/tvUbahDataPengungsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Ubah"
@@ -295,14 +295,15 @@
                         android:background="#732C7B"
                         android:padding="5dp"
                         android:layout_marginTop="5dp">
+
                         <ImageView
-                            android:layout_width="25dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="25dp"
-                            android:layout_marginRight="10dp"
                             android:layout_gravity="center"
+                            android:layout_marginRight="10dp"
                             android:src="@drawable/ic_subdirectory_arrow_right_24dp" />
                         <TextView
-                            android:id="@+id/tvLogout"
+                            android:id="@+id/tvHapusDataPengungsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Hapus"
