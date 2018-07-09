@@ -29,14 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
+        android:drawableLeft="@drawable/ic_add_shopping_cart_black_24dp"
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Nama Logistik"
         android:inputType="text"
         android:maxLines="1"
         android:padding="8dp"
-        android:textColorHint="#fff" />
+        />
 
     <View
         android:layout_width="match_parent"
@@ -48,14 +48,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
+        android:drawableLeft="@drawable/ic_star_black_24dp"
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Jumlah Logistik"
         android:inputType="number"
         android:maxLines="1"
         android:padding="8dp"
-        android:textColorHint="#fff" />
+       />
 
     <View
         android:layout_width="match_parent"
@@ -67,14 +67,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_email_black_18dp"
+        android:drawableLeft="@drawable/ic_create_black_24dp"
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Keterangan Logistik"
         android:inputType="text"
         android:maxLines="1"
         android:padding="8dp"
-        android:textColorHint="#fff" />
+        />
 
     <View
         android:layout_width="match_parent"

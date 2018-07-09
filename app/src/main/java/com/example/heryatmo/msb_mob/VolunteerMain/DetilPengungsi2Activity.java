@@ -13,12 +13,14 @@ import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.ShelterManagerMain.MainMshelterActivity;
+import com.example.heryatmo.msb_mob.UserMain.InfoActivity;
 import com.example.heryatmo.msb_mob.UserMain.MainActivity;
 import com.example.heryatmo.msb_mob.UserMain.MapsShelterActivity;
 import com.example.heryatmo.msb_mob.UserMain.ProfileActivity;
 import com.example.heryatmo.msb_mob.model.HapusPengungsi;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
 import com.example.heryatmo.msb_mob.model.UbahPassword;
+import com.example.heryatmo.msb_mob.model.UbahPengungsi;
 import com.example.heryatmo.msb_mob.remote.APIUtils;
 import com.example.heryatmo.msb_mob.response.HapusPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UserResponse;
@@ -47,7 +49,10 @@ public class DetilPengungsi2Activity extends AppCompatActivity {
         layUbahPengungsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Do Something
+                Intent intent = new Intent(DetilPengungsi2Activity.this,EditPengungsiActivity.class );
+                intent.putExtra("nama_pengungsi",nama_pengungsi);
+                intent.putExtra("golongan_darah_pengungsi",golongan_darah_pengungsi);
+                startActivity(intent);
             }
         });
         layHapusPengungsi = findViewById(R.id.layHapusPengungsi);
@@ -57,7 +62,7 @@ public class DetilPengungsi2Activity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(DetilPengungsi2Activity.this);
                 builder.setTitle("Hapus Pengungsi");
                 builder.setMessage("Hapus Pengungsi Ini?");
-                builder.setPositiveButton("Yoyoii", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         hapusPengungsi();
                         dialog.dismiss();

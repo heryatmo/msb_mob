@@ -10,11 +10,12 @@ import android.widget.LinearLayout;
 
 import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
+import com.example.heryatmo.msb_mob.UserMain.InfoActivity;
 import com.example.heryatmo.msb_mob.UserMain.ProfileActivity;
 
 public class VolunteerMainActivity extends AppCompatActivity {
 
-    LinearLayout layPengungsi,profilVolunteer,layLogistik;
+    LinearLayout layPengungsi,profilVolunteer,layLogistik,layinformasi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,15 @@ public class VolunteerMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(VolunteerMainActivity.this,TampilLogistikActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        layinformasi = findViewById(R.id.layInformasi);
+        layinformasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VolunteerMainActivity.this, InfoActivity.class);
                 startActivity(intent);
             }
         });

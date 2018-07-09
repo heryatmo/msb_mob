@@ -86,7 +86,10 @@
         <activity android:name=".VolunteerMain.TampilLogistikActivity" />
         <activity android:name=".VolunteerMain.DistribusiLogistikActivity" />
         <activity android:name=".Login.GantiPasswordActivity" />
-        <activity android:name=".Login.LupaPassActivity"></activity>
+        <activity android:name=".Login.LupaPassActivity" />
+        <activity android:name=".ShelterManagerMain.TambahPostActivity" />
+        <activity android:name=".ShelterManagerMain.PostMShelterActivity" />
+        <activity android:name=".VolunteerMain.EditPengungsiActivity"></activity>
     </application>
 
 </manifest>

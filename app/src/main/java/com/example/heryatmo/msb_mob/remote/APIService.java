@@ -10,6 +10,7 @@ import com.example.heryatmo.msb_mob.model.Pengungsi;
 import com.example.heryatmo.msb_mob.model.Posisi;
 import com.example.heryatmo.msb_mob.model.Post;
 import com.example.heryatmo.msb_mob.model.UbahPassword;
+import com.example.heryatmo.msb_mob.model.UbahPengungsi;
 import com.example.heryatmo.msb_mob.model.Upload;
 import com.example.heryatmo.msb_mob.model.User;
 import com.example.heryatmo.msb_mob.response.BencanaResponse;
@@ -27,6 +28,7 @@ import com.example.heryatmo.msb_mob.response.PosisiResponse;
 import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
 import com.example.heryatmo.msb_mob.response.TampilPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UbahPasswordResponse;
+import com.example.heryatmo.msb_mob.response.UbahPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UploadResponse;
 import com.example.heryatmo.msb_mob.response.UserResponse;
 import com.example.heryatmo.msb_mob.response.DaftarResponse;
@@ -105,6 +107,9 @@ public interface APIService {
     Call<HapusPengungsiResponse>
     deletePengungsi( @Path("id") String id);
 
+    @POST("api/v1/editPengungsi/{id}")
+    Call<UbahPengungsiResponse>
+    ubahPengungsi(@Path("id") String id, @Body UbahPengungsi ubahPengungsi);
 
 
 
