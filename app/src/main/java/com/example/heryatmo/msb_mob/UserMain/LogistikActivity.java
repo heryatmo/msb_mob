@@ -44,7 +44,12 @@ public class LogistikActivity extends AppCompatActivity {
         bSubmitLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createLogistik();
+                String nlog = tvNamaLogistik.getText().toString();
+                String jlog = tvJumlahLogistik.getText().toString();
+                String klog = tvKeterangan.getText().toString();
+                if(validateLogistik(nlog,jlog,klog)) {
+                    createLogistik();
+                }
             }
         });
     }
@@ -73,5 +78,21 @@ public class LogistikActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), " Gagal Masuk", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private boolean validateLogistik(String namLog, String jumLog, String ket){
+        if(tvNamaLogistik == null || namLog.trim().length() == 0){
+            Toast.makeText(this,"Email Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(tvJumlahLogistik == null || jumLog.trim().length() == 0){
+            Toast.makeText(this,"Password Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(tvKeterangan == null || ket.trim().length() == 0){
+            Toast.makeText(this,"Password Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

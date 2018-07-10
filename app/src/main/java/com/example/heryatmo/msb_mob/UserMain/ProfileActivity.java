@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.heryatmo.msb_mob.Login.GantiPasswordActivity;
 import com.example.heryatmo.msb_mob.Login.LoginActivity;
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.ShelterManagerMain.MainMshelterActivity;
@@ -42,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
         lyGantiPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, UbahPassword.class );
+                Intent intent = new Intent(ProfileActivity.this, GantiPasswordActivity.class );
                 startActivity(intent);
             }
         });

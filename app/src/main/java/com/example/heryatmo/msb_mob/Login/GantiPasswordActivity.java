@@ -39,29 +39,31 @@ public class GantiPasswordActivity extends AppCompatActivity {
         passLama = findViewById(R.id.txtPasswordLama);
         passBaru = findViewById(R.id.txtPasswordBaru);
         submitPass = findViewById(R.id.btnSubmitPass);
+
+//        gantiPass();
     }
 
-    private void gantiPass(){
-        UbahPassword ubahPassword = UbahPassword.builder()
-                .mIdUser(id_user)
-                .mPasswordLama(passLama.getText().toString())
-                .mPasswordBaru(passBaru.getText().toString())
-                .build();
-
-        Retrofit retrofit = RetroClient.getClient();
-        Call<UbahPasswordResponse> call = retrofit.create(APIService.class).ubahPassword(ubahPassword,id_user);
-        call.enqueue(new Callback<UbahPasswordResponse>() {
-            @Override
-            public void onResponse(Call<UbahPasswordResponse> call, Response<UbahPasswordResponse> response) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onFailure(Call<UbahPasswordResponse> call, Throwable t) {
-
-            }
-        });
-    }
+//    private void gantiPass(){
+//        UbahPassword ubahPassword = UbahPassword.builder()
+//                .mIdUser(id_user)
+//                .mPasswordLama(passLama.getText().toString())
+//                .mPasswordBaru(passBaru.getText().toString())
+//                .build();
+//
+//        Retrofit retrofit = RetroClient.getClient();
+//        Call<UbahPasswordResponse> call = retrofit.create(APIService.class).ubahPassword(ubahPassword,id_user);
+//        call.enqueue(new Callback<UbahPasswordResponse>() {
+//            @Override
+//            public void onResponse(Call<UbahPasswordResponse> call, Response<UbahPasswordResponse> response) {
+//                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+//                startActivity(intent);
+//                finish();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<UbahPasswordResponse> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.model.RegisterResponse;
@@ -28,7 +29,7 @@ import retrofit2.Retrofit;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    TextView emailRegister, passwordRegister, nama, tempat_lahir, tanggal_lahir, alamat, no_hp;
+    TextView emailRegister, passwordRegister, namaRegister, tempat_lahir, tanggal_lahir, alamat, no_hp;
     Spinner golongandarah, jeniskelamin, id_role;
     Button bSubmit, bTanggal;
     Calendar calendar;
@@ -42,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         emailRegister = findViewById(R.id.txtEmailRegister);
         passwordRegister = findViewById(R.id.txtPasswordRegister);
-        nama = findViewById(R.id.txtNama);
+        namaRegister = findViewById(R.id.txtNama);
         tempat_lahir = findViewById(R.id.txtTempatLahir);
         tanggal_lahir = findViewById(R.id.txtTanggalLahir);
         alamat = findViewById(R.id.txtAlamat);
@@ -54,7 +55,18 @@ public class SignUpActivity extends AppCompatActivity {
         bSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                register();
+
+                String email = emailRegister.getText().toString();
+                String password = passwordRegister.getText().toString();
+                String namReg = namaRegister.getText().toString();
+                String temLahir = tempat_lahir.getText().toString();
+                String tglLahir = tanggal_lahir.getText().toString();
+                String alamReg = alamat.getText().toString();
+                String nopereg = no_hp.getText().toString();
+
+                if(validateRegister(email,password,namReg,temLahir,tglLahir,alamReg,nopereg)) {
+                    register();
+                }
             }
         });
 
@@ -64,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
         RegisterResponse dataUser = RegisterResponse.builder()
                 .mEmail(emailRegister.getText().toString())
                 .mPassword(passwordRegister.getText().toString())
-                .mNama(nama.getText().toString())
+                .mNama(namaRegister.getText().toString())
                 .mTempatLahir(tempat_lahir.getText().toString())
                 .mTanggalLahir(tanggal_lahir.getText().toString())
                 .mJenisKelamin(jeniskelamin.getSelectedItem().toString())
@@ -105,5 +117,37 @@ public class SignUpActivity extends AppCompatActivity {
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
 //        Toast.makeText(this, String.valueOf(list.get(id_role.getSelectedItemPosition()).getMIdRole()), Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean validateRegister(String email, String password, String nama, String tptlahir, String tgllahir, String ala, String nope){
+        if(emailRegister == null || email.trim().length() == 0){
+            Toast.makeText(this,"Email Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(passwordRegister == null || password.trim().length() == 0){
+            Toast.makeText(this,"Password Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(namaRegister == null || nama.trim().length() == 0){
+            Toast.makeText(this,"Nama Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(tempat_lahir == null || tptlahir.trim().length() == 0){
+            Toast.makeText(this,"tempat lahir Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(tanggal_lahir == null || tgllahir.trim().length() == 0){
+            Toast.makeText(this,"tanggal lahir Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(alamat == null || ala.trim().length() == 0){
+            Toast.makeText(this,"alamat Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(no_hp == null || nope.trim().length() == 0){
+            Toast.makeText(this,"nomor hp Required",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

@@ -89,7 +89,8 @@
         <activity android:name=".Login.LupaPassActivity" />
         <activity android:name=".ShelterManagerMain.TambahPostActivity" />
         <activity android:name=".ShelterManagerMain.PostMShelterActivity" />
-        <activity android:name=".VolunteerMain.EditPengungsiActivity"></activity>
+        <activity android:name=".VolunteerMain.EditPengungsiActivity" />
+        <activity android:name=".LaporanActivity"></activity>
     </application>
 
 </manifest>

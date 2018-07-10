@@ -50,8 +50,16 @@ public class DetilPengungsi2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DetilPengungsi2Activity.this,EditPengungsiActivity.class );
+                intent.putExtra("id_pengungsi",id_pengungsi);
                 intent.putExtra("nama_pengungsi",nama_pengungsi);
+                intent.putExtra("tempat_lahir_pengungsi",tempat_lahir_pengungsi);
+                intent.putExtra("tanggal_lahir_pengungsi",tanggal_lahir_pengungsi);
+                intent.putExtra("jenis_kelamin_pengungsi",jenis_kelamin_pengungsi);
                 intent.putExtra("golongan_darah_pengungsi",golongan_darah_pengungsi);
+                intent.putExtra("alamat_pengungsi",alamat_pengungsi);
+                intent.putExtra("agama_pengungsi",agama_pengungsi);
+                intent.putExtra("status_pengungsi",status_pengungsi);
+                intent.putExtra("keterangan",keterangan_pengungsi);
                 startActivity(intent);
             }
         });

@@ -48,10 +48,12 @@ public class PengungsiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pengungsi);
         calendar = Calendar.getInstance();
 
+        initSpinnerShelter();
+
         namaPengungsi = findViewById(R.id.txtNamaPengungsi);
         tempat_lahirPengungsi = findViewById(R.id.txtTempatLahirPengungsi);
         tanggal_lahirPengungsi = findViewById(R.id.txtTanggalLahirPengungsi);
-        alamatPengungsi = findViewById(R.id.txtAlamat);
+        alamatPengungsi = findViewById(R.id.txtAlamatPengungsi);
         agamaPengungsi = findViewById(R.id.txtAgamaPengungsi);
         keteranganPengungsi = findViewById(R.id.txtKeteranganPengungsi);
         golongandarahPengungsi = findViewById(R.id.spgolongan_darahPengungsi);
@@ -62,8 +64,7 @@ public class PengungsiActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PengungsiActivity.this,VolunteerMainActivity.class );
-                startActivity(intent);
+                registerPengungsi();
             }
         });
     }

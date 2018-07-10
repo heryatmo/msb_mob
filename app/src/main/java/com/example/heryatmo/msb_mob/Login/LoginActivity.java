@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     if (response.isSuccessful()) {
                         UserResponse user = response.body();
+
                         if (user.getMData().getMIdRole().toString().equalsIgnoreCase("3")) {
                             savePreferences(email, password, user.getMData().getMIdRole(), user.getMData().getMIdUser().toString());
                             saveUser(user);

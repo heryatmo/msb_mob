@@ -1,9 +1,12 @@
 package com.example.heryatmo.msb_mob.UserMain;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +33,8 @@ public class DaftarActivity extends AppCompatActivity {
     LinearLayout layVolu,layShel,laySM;
     String id_user;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,21 @@ public class DaftarActivity extends AppCompatActivity {
         laySM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              daftarSM();
+                AlertDialog.Builder builder = new AlertDialog.Builder(DaftarActivity.this);
+                builder.setMessage("Daftar Sebagai Shelter Manager ?");
+                builder.setPositiveButton("Daftar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        daftarSM();
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 public class UbahPengungsi {
     @SerializedName("agama_pengungsi")
     private String mAgamaPengungsi;
+    @SerializedName("id_pengungsi")
+    private String mIdPengungsi;
     @SerializedName("alamat_pengungsi")
     private String mAlamatPengungsi;
     @SerializedName("golongan_darah_pengungsi")

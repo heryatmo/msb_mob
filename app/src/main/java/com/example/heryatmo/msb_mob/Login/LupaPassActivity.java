@@ -29,6 +29,7 @@ public class LupaPassActivity extends AppCompatActivity {
 
         edLupaPass = findViewById(R.id.txtEmailPass);
         btnLupaPass = findViewById(R.id.btnSubmitPass);
+        lupaPass();
     }
 
     private void lupaPass(){

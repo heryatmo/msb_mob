@@ -23,6 +23,7 @@ import com.example.heryatmo.msb_mob.model.RegisterResponse;
 import com.example.heryatmo.msb_mob.response.DonasiResponse;
 import com.example.heryatmo.msb_mob.response.LogistikResponse;
 import com.example.heryatmo.msb_mob.response.LupaPasswordResponse;
+import com.example.heryatmo.msb_mob.response.PengumumanResponse;
 import com.example.heryatmo.msb_mob.response.PengungsiResponse;
 import com.example.heryatmo.msb_mob.response.PosisiResponse;
 import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
@@ -84,8 +85,8 @@ public interface APIService {
     pengungsiRequest(@Body Pengungsi pengungsi);
 
     @POST("api/v1/postingKebutuhan")
-    Call<TestResponse>
-    postResponse(@Body Post post);
+    Call<PengumumanResponse>
+    tambahPost(@Body Post post);
 
     @POST("api/v1/terimaVolunteer/{id}/{id_user}")
     Call<DaftarPeran>

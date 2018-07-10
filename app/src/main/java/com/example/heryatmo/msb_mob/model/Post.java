@@ -17,6 +17,4 @@ public class Post {
 
     @SerializedName("kebutuhan")
     private String mKebutuhan;
-    @SerializedName("nama")
-    private String mNama;
 }
