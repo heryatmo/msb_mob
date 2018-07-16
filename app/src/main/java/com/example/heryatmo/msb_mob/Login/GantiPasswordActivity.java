@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,31 +40,37 @@ public class GantiPasswordActivity extends AppCompatActivity {
         passLama = findViewById(R.id.txtPasswordLama);
         passBaru = findViewById(R.id.txtPasswordBaru);
         submitPass = findViewById(R.id.btnSubmitPass);
+        submitPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
+                startActivity(intent);
+                gantiPass();
+            }
+        });
 
-//        gantiPass();
     }
 
-//    private void gantiPass(){
-//        UbahPassword ubahPassword = UbahPassword.builder()
-//                .mIdUser(id_user)
-//                .mPasswordLama(passLama.getText().toString())
-//                .mPasswordBaru(passBaru.getText().toString())
-//                .build();
-//
-//        Retrofit retrofit = RetroClient.getClient();
-//        Call<UbahPasswordResponse> call = retrofit.create(APIService.class).ubahPassword(ubahPassword,id_user);
-//        call.enqueue(new Callback<UbahPasswordResponse>() {
-//            @Override
-//            public void onResponse(Call<UbahPasswordResponse> call, Response<UbahPasswordResponse> response) {
-//                Intent intent = new Intent(getApplicationContext(),MainActivity.class );
-//                startActivity(intent);
-//                finish();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UbahPasswordResponse> call, Throwable t) {
-//
-//            }
-//        });
-//    }
+    private void gantiPass(){
+        UbahPassword ubahPassword = UbahPassword.builder()
+                .mIdUser(id_user)
+                .mPasswordLama(passLama.getText().toString())
+                .mPasswordBaru(passBaru.getText().toString())
+                .build();
+
+        Retrofit retrofit = RetroClient.getClient();
+        Call<UbahPasswordResponse> call = retrofit.create(APIService.class).ubahPassword(ubahPassword,id_user);
+        call.enqueue(new Callback<UbahPasswordResponse>() {
+            @Override
+            public void onResponse(Call<UbahPasswordResponse> call, Response<UbahPasswordResponse> response) {
+
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<UbahPasswordResponse> call, Throwable t) {
+
+            }
+        });
+    }
 }

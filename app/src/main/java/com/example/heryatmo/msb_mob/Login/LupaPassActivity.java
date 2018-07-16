@@ -3,6 +3,7 @@ package com.example.heryatmo.msb_mob.Login;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,7 +21,7 @@ import retrofit2.Retrofit;
 public class LupaPassActivity extends AppCompatActivity {
 
     EditText edLupaPass;
-    Button btnLupaPass;
+    Button bSPAss;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,16 @@ public class LupaPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lupa_pass);
 
         edLupaPass = findViewById(R.id.txtEmailPass);
-        btnLupaPass = findViewById(R.id.btnSubmitPass);
-        lupaPass();
+        bSPAss = findViewById(R.id.btnLupaPass);
+        bSPAss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LupaPassActivity.this,LoginActivity.class );
+                startActivity(intent);
+                lupaPass();
+            }
+        });
+
     }
 
     private void lupaPass(){

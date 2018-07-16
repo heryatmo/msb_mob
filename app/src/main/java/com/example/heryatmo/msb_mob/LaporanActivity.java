@@ -2,7 +2,13 @@ package com.example.heryatmo.msb_mob;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.example.heryatmo.msb_mob.model.Logistik;
+import com.example.heryatmo.msb_mob.remote.APIService;
+import com.example.heryatmo.msb_mob.remote.RetroClient;
+import com.example.heryatmo.msb_mob.response.LogistikResponse;
+import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -20,13 +26,22 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LaporanActivity extends AppCompatActivity {
 
     private BarChart chartLaporan;
     private static float BAR_WIDTH = 0.9f;
     private static float GRANULARITY = 1f;
+
+    List<Logistik> logistik = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +53,7 @@ public class LaporanActivity extends AppCompatActivity {
         chartLaporan.getDescription().setEnabled(false);
 
         ArrayList<BarEntry> values = new ArrayList<>();
-        ArrayList<String> title = new ArrayList<>();
+        final ArrayList<String> title = new ArrayList<>();
         /*
         * dataAPI = getDataAPI
         * for(int i=0;i<dataAPI.size();i++)
@@ -47,6 +62,28 @@ public class LaporanActivity extends AppCompatActivity {
         *   title.add(dataAPI.get(i).getMNamaLogistik());
         * }
         * */
+
+        Retrofit retrofit = RetroClient.getClient();
+
+        APIService request = retrofit.create(APIService.class);
+        Call<TampilLogistikResponse> call = request.getLogistik();
+        call.enqueue(new Callback<TampilLogistikResponse>() {
+            @Override
+            public void onResponse(Call<TampilLogistikResponse> call, Response<TampilLogistikResponse> response) {
+                logistik = response.body().getMData();
+                for(int i=0; i<logistik.size();i++)
+                {
+//                    values.add(new BarEntry(i,logistik.get(i).getMJumlahLogistik()));
+                    title.add(logistik.get(i).getMNamaLogistik());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TampilLogistikResponse> call, Throwable t) {
+                Log.d("Error", t.getMessage());
+            }
+        });
+
         values.add(new BarEntry(0,500));
         values.add(new BarEntry(1,200));
         values.add(new BarEntry(2,400));

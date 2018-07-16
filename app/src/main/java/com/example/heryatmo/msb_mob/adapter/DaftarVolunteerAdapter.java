@@ -3,10 +3,12 @@ package com.example.heryatmo.msb_mob.adapter;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,17 @@ import android.widget.Toast;
 
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.ShelterManagerMain.DaftarVolunteerActivity;
+import com.example.heryatmo.msb_mob.ShelterManagerMain.MainMshelterActivity;
 import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
 import com.example.heryatmo.msb_mob.model.Post;
 import com.example.heryatmo.msb_mob.model.User;
 import com.example.heryatmo.msb_mob.remote.APIService;
+import com.example.heryatmo.msb_mob.remote.APIUtils;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
 import com.example.heryatmo.msb_mob.response.DaftarCalonVolunteerResponse;
 import com.example.heryatmo.msb_mob.response.LogistikResponse;
+import com.example.heryatmo.msb_mob.response.TolakCalonVolunteerResponse;
 
 import java.util.List;
 
@@ -36,6 +41,7 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
     private Context context;
     private ProgressDialog progressDialog;
 
+    String id_daftar;
     public DaftarVolunteerAdapter(List<CalonVolunteer> daftarVolunteer, Context context) {
         this.daftarVolunteer = daftarVolunteer;
         this.context = context;
@@ -57,6 +63,7 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
             @Override
             public void onClick(View view) {
                 final CalonVolunteer calonVolunteer = daftarVolunteer.get(position);
+                id_daftar = calonVolunteer.getMIdDaftar();
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage(
                                 "Nama : " + calonVolunteer.getMNama() + "\n" +
@@ -77,6 +84,7 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
                         .setNegativeButton("Tolak", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(context, "Ditolak", Toast.LENGTH_SHORT).show();
+                                tolakVolunteer();
                             }
                         });
 
@@ -126,5 +134,32 @@ public class DaftarVolunteerAdapter extends RecyclerView.Adapter<DaftarVolunteer
         //you usually don't want the user to stop the current process, and this will make sure of that
         progressDialog.setCancelable(false);
         progressDialog.show();
+    }
+
+    private void tolakVolunteer()
+    {
+        Call<TolakCalonVolunteerResponse> call = APIUtils.getUserService().tolakCalonVolunteer(id_daftar);
+        call.enqueue(new Callback<TolakCalonVolunteerResponse>() {
+            @Override
+            public void onResponse(Call<TolakCalonVolunteerResponse> call, Response<TolakCalonVolunteerResponse> response) {
+                try {
+                    if (response.isSuccessful()) {
+                        progressDialog.dismiss();
+                        Toast.makeText(context,"Berhasil",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.i("Failed", "Hapus Pengungsi Gagal [Else in Try-Catch]");
+                    }
+                }
+                catch (Exception e) {
+                    Log.i("Failed", "Hapus Pengungsi Gagal [Try-Catch]");
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TolakCalonVolunteerResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

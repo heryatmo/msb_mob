@@ -86,7 +86,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layDistribusi"
+                    android:id="@+id/layDataPengungsi"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                         android:padding="8dp"
                         android:layout_marginTop="20dp"
                         android:background="@color/colorBlueJeansDark"
-                        android:text="Data Distribusi"
+                        android:text="Pengungsi"
                         android:textSize="15dp"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"/>

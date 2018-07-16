@@ -9,6 +9,7 @@ import com.example.heryatmo.msb_mob.model.LupaPassword;
 import com.example.heryatmo.msb_mob.model.Pengungsi;
 import com.example.heryatmo.msb_mob.model.Posisi;
 import com.example.heryatmo.msb_mob.model.Post;
+import com.example.heryatmo.msb_mob.model.TambahPost;
 import com.example.heryatmo.msb_mob.model.UbahPassword;
 import com.example.heryatmo.msb_mob.model.UbahPengungsi;
 import com.example.heryatmo.msb_mob.model.Upload;
@@ -28,6 +29,7 @@ import com.example.heryatmo.msb_mob.response.PengungsiResponse;
 import com.example.heryatmo.msb_mob.response.PosisiResponse;
 import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
 import com.example.heryatmo.msb_mob.response.TampilPengungsiResponse;
+import com.example.heryatmo.msb_mob.response.TolakCalonVolunteerResponse;
 import com.example.heryatmo.msb_mob.response.UbahPasswordResponse;
 import com.example.heryatmo.msb_mob.response.UbahPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UploadResponse;
@@ -84,9 +86,9 @@ public interface APIService {
     Call<PengungsiResponse>
     pengungsiRequest(@Body Pengungsi pengungsi);
 
-    @POST("api/v1/postingKebutuhan")
+    @POST("api/v1/postingKebutuhan/{id}")
     Call<PengumumanResponse>
-    tambahPost(@Body Post post);
+    tambahPost(@Body TambahPost tbpost, @Path("id") String id);
 
     @POST("api/v1/terimaVolunteer/{id}/{id_user}")
     Call<DaftarPeran>
@@ -107,6 +109,10 @@ public interface APIService {
     @POST("api/v1/hapusPengungsi/{id}")
     Call<HapusPengungsiResponse>
     deletePengungsi( @Path("id") String id);
+
+    @POST("api/v1/hapusCalonVolunteer/{id}")
+    Call<TolakCalonVolunteerResponse>
+    tolakCalonVolunteer( @Path("id") String id);
 
     @POST("api/v1/editPengungsi/{id}")
     Call<UbahPengungsiResponse>
@@ -139,5 +145,8 @@ public interface APIService {
 
     @GET("api/v1/tampilDaftarVolunteer2/{id}")
     Call<DaftarCalonVolunteerResponse> getDaftarVolunteer(@Path("id") String id);
+
+    @GET("api/v1/tampilDaftarVolunteer3/{id}")
+    Call<DaftarCalonVolunteerResponse> getDaftarVolunteerKeterima(@Path("id") String id);
 
 }

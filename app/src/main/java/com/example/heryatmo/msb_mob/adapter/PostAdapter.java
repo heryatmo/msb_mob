@@ -29,7 +29,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(PostAdapter.ViewHolder holder, int position) {
-        holder.tv_nama.setText(post.get(position).getMKebutuhan());
+        holder.tv_nama.setText(post.get(position).getMNama());
         holder.tv_kebutuhan.setText(post.get(position).getMKebutuhan());
     }
 

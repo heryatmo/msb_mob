@@ -75,6 +75,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_sex_a9a9a9_24dp" />
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Jenis Kelamin :" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvJenisKelaminPengungsi"
                             android:layout_width="match_parent"
@@ -94,6 +103,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_blood_red_24dp" />
+                        <LinearLayout
+                            android:layout_width="110dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Golongan darah : " />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvGolonganDarahPengungsi"
                             android:layout_width="match_parent"
@@ -166,6 +184,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_home_003366_24dp" />
+                        <LinearLayout
+                            android:layout_width="60dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="116dp"
+                                android:layout_height="wrap_content"
+                                android:text="Alamat :" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvAlamatPengungsi1"
                             android:layout_width="match_parent"
@@ -185,6 +212,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_notifications_black_24dp" />
+                        <LinearLayout
+                            android:layout_width="60dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="116dp"
+                                android:layout_height="wrap_content"
+                                android:text="Agama :" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvAgamaPengungsi1"
                             android:layout_width="match_parent"
@@ -204,6 +240,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_add_location_black_18dp" />
+                        <LinearLayout
+                            android:layout_width="60dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="116dp"
+                                android:layout_height="wrap_content"
+                                android:text="Status :" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvStatusPengungsi1"
                             android:layout_width="match_parent"
@@ -223,6 +268,15 @@
                             android:layout_marginRight="10dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_accessible_black_24dp" />
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="28dp">
+
+                            <TextView
+                                android:layout_width="116dp"
+                                android:layout_height="wrap_content"
+                                android:text="Keterangan :" />
+                        </LinearLayout>
                         <TextView
                             android:id="@+id/tvKetPengungsi"
                             android:layout_width="match_parent"

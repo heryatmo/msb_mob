@@ -1,6 +1,4 @@
-
 package com.example.heryatmo.msb_mob.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
@@ -12,11 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@SuppressWarnings("unused")
-public class Post {
 
-    @SerializedName("nama")
-    private String mNama;
-    @SerializedName("kebutuhan")
-    private String mKebutuhan;
+public class TambahPost {
+    @SerializedName("id_user")
+    private String mIdUser;
+    @SerializedName("post")
+    private String mPost;
 }
