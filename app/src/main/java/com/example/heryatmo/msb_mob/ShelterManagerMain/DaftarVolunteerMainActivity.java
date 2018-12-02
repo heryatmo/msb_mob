@@ -29,7 +29,7 @@ public class DaftarVolunteerMainActivity extends AppCompatActivity {
             }
         });
 
-        layDatVol = findViewById(R.id.layDataVolunteer);
+        layDatVol = findViewById(R.id.layVolunteerTerkini);
         layDatVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

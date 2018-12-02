@@ -29,7 +29,7 @@ public class MainMshelterActivity extends AppCompatActivity {
         dataVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainMshelterActivity.this,DaftarVolunteerActivity.class );
+                Intent intent = new Intent(MainMshelterActivity.this,DaftarVolunteerMainActivity.class );
                 startActivity(intent);
             }
         });

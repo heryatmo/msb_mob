@@ -11,6 +11,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tambah Data Pengungsi"/>
+        <TextView
+            android:id="@+id/judulhaha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jumlah volunteer saat ini :"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:paddingTop="50dp"/>
+    <TextView
+        android:id="@+id/jumlahPengungsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:paddingTop="80dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_pengungsi_list"
@@ -23,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnTambahPengungsi"/>
+        app:layout_constraintTop_toBottomOf="@id/jumlahPengungsi"/>
 
 
 </android.support.constraint.ConstraintLayout>

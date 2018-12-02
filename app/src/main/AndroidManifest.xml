@@ -93,7 +93,9 @@
         <activity android:name=".LaporanActivity" />
         <activity android:name=".LaporanPengungsiActivity" />
         <activity android:name=".ShelterManagerMain.DaftarValonteerKeterimaActivity" />
-        <activity android:name=".ShelterManagerMain.DaftarVolunteerMainActivity"></activity>
+        <activity android:name=".ShelterManagerMain.DaftarVolunteerMainActivity" />
+        <activity android:name=".UserMain.AlurLogActivity" />
+        <activity android:name=".UserMain.DetilAlurLogActivity"></activity>
     </application>
 
 </manifest>

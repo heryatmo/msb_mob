@@ -19,11 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textJumlahVolunteer"
+        android:id="@+id/textJumlahVolunteerTerkini"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="50"
+        android:text="1"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textJumlahVolunteer" />
+        app:layout_constraintTop_toBottomOf="@id/textJumlahVolunteerTerkini" />
 
 
 </android.support.constraint.ConstraintLayout>

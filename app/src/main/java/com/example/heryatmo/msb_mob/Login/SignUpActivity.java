@@ -124,8 +124,8 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this,"Email Required",Toast.LENGTH_SHORT).show();
             return false;
         }
-        if(passwordRegister == null || password.trim().length() == 0){
-            Toast.makeText(this,"Password Required",Toast.LENGTH_SHORT).show();
+        if(passwordRegister == null || password.trim().length() < 6){
+            Toast.makeText(this,"Password Kurang dari Enam Digit",Toast.LENGTH_SHORT).show();
             return false;
         }
         if(namaRegister == null || nama.trim().length() == 0){

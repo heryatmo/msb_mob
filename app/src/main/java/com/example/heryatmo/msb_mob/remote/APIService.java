@@ -1,7 +1,9 @@
 package com.example.heryatmo.msb_mob.remote;
 
+import com.example.heryatmo.msb_mob.model.AlurLog;
 import com.example.heryatmo.msb_mob.model.CalonVolunteer;
 import com.example.heryatmo.msb_mob.model.DaftarPeran;
+import com.example.heryatmo.msb_mob.model.DetilAlurLog;
 import com.example.heryatmo.msb_mob.model.DistribusiLogistik;
 import com.example.heryatmo.msb_mob.model.Donasi;
 import com.example.heryatmo.msb_mob.model.HapusPengungsi;
@@ -14,8 +16,10 @@ import com.example.heryatmo.msb_mob.model.UbahPassword;
 import com.example.heryatmo.msb_mob.model.UbahPengungsi;
 import com.example.heryatmo.msb_mob.model.Upload;
 import com.example.heryatmo.msb_mob.model.User;
+import com.example.heryatmo.msb_mob.response.AlurLogResponse;
 import com.example.heryatmo.msb_mob.response.BencanaResponse;
 import com.example.heryatmo.msb_mob.response.DaftarCalonVolunteerResponse;
+import com.example.heryatmo.msb_mob.response.DetilAlurLogResponse;
 import com.example.heryatmo.msb_mob.response.DistribusiLogistikResponse;
 import com.example.heryatmo.msb_mob.response.HapusPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.JenisResponse;
@@ -30,6 +34,7 @@ import com.example.heryatmo.msb_mob.response.PosisiResponse;
 import com.example.heryatmo.msb_mob.response.TampilLogistikResponse;
 import com.example.heryatmo.msb_mob.response.TampilPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.TolakCalonVolunteerResponse;
+import com.example.heryatmo.msb_mob.response.TotalVolunteerResponse;
 import com.example.heryatmo.msb_mob.response.UbahPasswordResponse;
 import com.example.heryatmo.msb_mob.response.UbahPengungsiResponse;
 import com.example.heryatmo.msb_mob.response.UploadResponse;
@@ -118,6 +123,14 @@ public interface APIService {
     Call<UbahPengungsiResponse>
     ubahPengungsi(@Path("id") String id, @Body UbahPengungsi ubahPengungsi);
 
+    @POST("api/v1/tampilAlurLog")
+    Call<AlurLogResponse>
+    alurLog(@Body AlurLog alurLog);
+
+    @POST("api/v1/tampilDetilAlurLog")
+    Call<DetilAlurLogResponse>
+    detilAlurLog(@Body DetilAlurLog detilAlurLog);
+
 
 
     //------------------------------- GET ----------------------------------------------------------------
@@ -148,5 +161,8 @@ public interface APIService {
 
     @GET("api/v1/tampilDaftarVolunteer3/{id}")
     Call<DaftarCalonVolunteerResponse> getDaftarVolunteerKeterima(@Path("id") String id);
+
+    @GET("api/v1/totVol/{id}")
+    Call<TotalVolunteerResponse> getTotalVolunteer(@Path("id") String id);
 
 }

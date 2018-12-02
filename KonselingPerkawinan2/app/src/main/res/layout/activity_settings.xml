@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.konselingperkawinan.SettingsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/avatar_default"
+        android:id="@+id/circleImageView" />
+
+    <TextView
+        android:id="@+id/settings_txtNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circleImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif"
+        android:text="default"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/settings_txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_txtNama"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif"
+        android:text="default"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/settings_btnGantiNamaStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/circleImageView"
+        android:layout_alignLeft="@+id/circleImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/circleImageView"
+        android:layout_alignStart="@+id/circleImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:text="Ubah Profil" />
+
+    <Button
+        android:id="@+id/settings_btnGantiFoto"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/circleImageView"
+        android:layout_alignLeft="@+id/circleImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/circleImageView"
+        android:layout_alignStart="@+id/circleImageView"
+        android:layout_marginBottom="73dp"
+        android:text="Ubah Foto"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/settings_txtKonsel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_txtStatus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="default"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/settings_btnGantiPassword"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/circleImageView"
+        android:layout_alignLeft="@+id/circleImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/circleImageView"
+        android:layout_alignStart="@+id/circleImageView"
+        android:layout_marginBottom="27dp"
+        android:text="Ganti Password"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

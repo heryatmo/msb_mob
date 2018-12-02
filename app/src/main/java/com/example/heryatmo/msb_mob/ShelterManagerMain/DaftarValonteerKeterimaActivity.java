@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.adapter.DaftarVolunteerAdapter;
@@ -14,6 +15,7 @@ import com.example.heryatmo.msb_mob.adapter.DaftarVolunteerKeterimaAdapter;
 import com.example.heryatmo.msb_mob.remote.APIService;
 import com.example.heryatmo.msb_mob.remote.RetroClient;
 import com.example.heryatmo.msb_mob.response.DaftarCalonVolunteerResponse;
+import com.example.heryatmo.msb_mob.response.TotalVolunteerResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,15 +26,23 @@ public class DaftarValonteerKeterimaActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private DaftarVolunteerKeterimaAdapter adapter;
-    String id_user;
+    private TextView totVolunteer;
+    String id_user,totVol;
+    int count ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_valonteer_keterima);
         recyclerView = findViewById(R.id.rv_volunteer_keterima_list);
+
+        totVolunteer = findViewById(R.id.textJumlahVolunteerTerkini);
+
+
         SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
         id_user  = sp.getString("id_user","-");
         loadJSON();
+
     }
 
     private void recycleList(DaftarCalonVolunteerResponse daftarResponse){
@@ -41,6 +51,10 @@ public class DaftarValonteerKeterimaActivity extends AppCompatActivity {
         adapter = new DaftarVolunteerKeterimaAdapter(daftarResponse.getData(), this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        count = recyclerView.getAdapter().getItemCount();
+        totVol = String.valueOf(count);
+        totVolunteer.setText(totVol);
+        Log.d("count : ",totVol);
     }
 
     private void loadJSON(){
@@ -60,4 +74,22 @@ public class DaftarValonteerKeterimaActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private void loadTotalVol(){
+//        Retrofit retrofit = RetroClient.getClient();
+//
+//        APIService request = retrofit.create(APIService.class);
+//        Call<TotalVolunteerResponse> call = request.getTotalVolunteer(id_user);
+//        call.enqueue(new Callback<TotalVolunteerResponse>() {
+//            @Override
+//            public void onResponse(Call<TotalVolunteerResponse> call, Response<TotalVolunteerResponse> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<TotalVolunteerResponse> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

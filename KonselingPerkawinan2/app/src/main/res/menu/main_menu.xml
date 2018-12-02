@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_users_btn"
+        android:title="Tambah Kontak"
+        android:icon="@drawable/ic_tambah_user"
+        app:showAsAction="always"/>
+
+    <!--<item-->
+        <!--android:id="@+id/main_konseling_btn"-->
+        <!--android:title="Permintaan Konseling" />-->
+
+    <item
+        android:id="@+id/main_profil_btn"
+        android:title="Pengaturan Profil" />
+    <item
+        android:id="@+id/main_logout_btn"
+        android:title="Log out" />
+</menu>

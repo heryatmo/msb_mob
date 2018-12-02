@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "15429743643",
+    "firebase_url": "https://konselingperkawinan2.firebaseio.com",
+    "project_id": "konselingperkawinan2",
+    "storage_bucket": "konselingperkawinan2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15429743643:android:5a6ec35b68167d08",
+        "android_client_info": {
+          "package_name": "com.konselingperkawinan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15429743643-g2d6d3b3kfr1m81o0j8565k0vdhibslj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.konselingperkawinan",
+            "certificate_hash": "c71134cf63522cfad83bb222bf3b606edaab81bd"
+          }
+        },
+        {
+          "client_id": "15429743643-6m5in6nde68j8n4t0iupt8sk5uslqedp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpDn4G1_esNo0ldhoRcliFdUrlv83LTY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15429743643-6m5in6nde68j8n4t0iupt8sk5uslqedp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

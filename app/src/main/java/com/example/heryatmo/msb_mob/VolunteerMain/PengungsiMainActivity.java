@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.heryatmo.msb_mob.R;
 import com.example.heryatmo.msb_mob.adapter.DaftarVolunteerAdapter;
@@ -29,7 +30,9 @@ public class PengungsiMainActivity extends AppCompatActivity {
     Button btnTambahPengungsi;
     private RecyclerView recyclerView;
     private PengungsiAdapter adapter;
-    String id_user;
+    String id_user,totalPengungsi;
+    TextView jlhPengungsi;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class PengungsiMainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_pengungsi_main);
 
             recyclerView = findViewById(R.id.rv_pengungsi_list);
+            jlhPengungsi = findViewById(R.id.jumlahPengungsi);
 
             SharedPreferences sp = getSharedPreferences("SPLog", Context.MODE_PRIVATE);
             id_user  = sp.getString("id_user","-");
@@ -58,6 +62,9 @@ public class PengungsiMainActivity extends AppCompatActivity {
             adapter = new PengungsiAdapter(daftarPengungsi.getMData(), this);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(adapter);
+            count = recyclerView.getAdapter().getItemCount();
+            totalPengungsi = String.valueOf(count);
+            jlhPengungsi.setText(totalPengungsi);
         }
 
         private void loadJSON(){
